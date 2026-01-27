@@ -3,167 +3,183 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Maggie Shao</title>
+  <title>Maggie Shao | Portfolio</title>
 
   <style>
+    /* ===== Global ===== */
     body {
-      font-family: Arial, Helvetica, sans-serif;
       margin: 0;
-      padding: 0;
-      line-height: 1.6;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial;
+      color: #222;
+      padding-top: 70px; /* 给 fixed nav 让位 */
+      background: #f9fafb;
     }
 
+    h1, h2 {
+      margin-bottom: 12px;
+    }
+
+    section {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 60px 20px;
+    }
+
+    /* ===== Navigation (TOP) ===== */
     .nav {
-      position: sticky;
+      position: fixed;
       top: 0;
-      background: #ffffff;
+      left: 0;
+      width: 100%;
+      background: white;
       border-bottom: 1px solid #ddd;
-      padding: 12px;
+      z-index: 1000;
       text-align: center;
+      padding: 14px 0;
     }
 
     .nav a {
-      margin: 0 12px;
+      margin: 0 16px;
       text-decoration: none;
+      font-weight: 600;
       color: #333;
-      font-weight: bold;
     }
 
-    .content {
-      max-width: 900px;
-      margin: 40px auto;
-      padding: 0 20px;
+    .nav a:hover {
+      color: #3b82f6;
     }
 
-    h1, h2, h3 {
-      margin-top: 0;
+    /* ===== Header ===== */
+    .header {
+      text-align: center;
+      padding: 40px 20px 20px;
     }
 
-    img {
-      max-width: 100%;
-      height: auto;
+    .profile-img {
+      width: 200px;
+      border-radius: 50%;
+      margin-top: 20px;
     }
 
+    /* ===== Skills ===== */
+    .skills-list {
+      line-height: 1.8;
+    }
+
+    /* ===== Projects ===== */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    .project-card {
+      background: white;
+      border-radius: 10px;
+      padding: 16px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    }
+
+    .project-card img {
+      width: 100%;
+      border-radius: 8px;
+    }
+
+    /* ===== Footer ===== */
     footer {
       text-align: center;
-      padding: 20px;
-      border-top: 1px solid #ddd;
-      margin-top: 40px;
-      color: #666;
+      padding: 40px 0;
+      color: #777;
     }
   </style>
 </head>
 
 <body>
 
-  <!-- Header -->
-  <div class="content">
-    <h1>Maggie Shao</h1>
-    <img src="main_image.jpg" alt="Maggie Shao" width="200">
-  </div>
-
-  <!-- Navigation -->
+  <!-- ===== NAVIGATION (TOP FIXED) ===== -->
   <div class="nav">
-    <a href=" ">About</a >
-    <a href="#resume">Resume</a >
-    <a href="#projects">Projects</a >
-    <a href="#skills">Skills</a >
-    <a href="#contact">Contact</a >
+    <a href="#about">About</a>
+    <a href="#resume">Resume</a>
+    <a href="#projects">Projects</a>
+    <a href="#skills">Skills</a>
+    <a href="#contact">Contact</a>
   </div>
 
-  <!-- About -->
-  <div class="content" id="about">
+  <!-- ===== HEADER ===== -->
+  <div class="header">
+    <h1>Maggie Shao</h1>
+    <img src="main_image.jpg" alt="Maggie Shao" class="profile-img" />
+  </div>
+
+  <!-- ===== ABOUT ===== -->
+  <section id="about">
     <h2>About Me</h2>
     <p>
-      Hi, I'm Maggie Shao 👋! I'm a student at University of California, San Diego.
+      Hi, I'm Maggie Shao 👋! I'm a student at the University of California, San Diego.
       I have a deep love for data and a curiosity about where they can lead me.
-      I am passionate about leveraging technical and analytical expertise to
-      address inequality and promote greater equity through innovation.
-      Welcome to my personal website!
-    </p >
-  </div>
+      I am passionate about leveraging technical and analytical expertise to address
+      inequality and promote greater equity through innovation.
+    </p>
+  </section>
 
-  <!-- Resume -->
-  <div class="content" id="resume">
-    <h2>My Resume 📃</h2>
-    <a href="https://drive.google.com/file/d/1gifMy_pdcfIAp33yyFBZNE45BQ1BpVW-/view"
-       target="_blank">
-      View Resume
-    </a >
-  </div>
+  <!-- ===== RESUME ===== -->
+  <section id="resume">
+    <h2>Resume</h2>
+    <p>
+      You can download my resume here:
+      <a href="resume.pdf" target="_blank">Resume PDF</a>
+    </p>
+  </section>
 
-  <!-- Projects -->
-  <div class="content" id="projects">
+  <!-- ===== PROJECTS ===== -->
+  <section id="projects">
     <h2>Projects</h2>
 
-    <h3>Project 1: Sex Differences in Obesity Predictors</h3>
-    <p><em>Sep 2025 – Dec 2025</em></p >
-    <p>
-      This project analyzes obesity-related health data to identify key predictors of BMI
-      and examine how these factors differ across sex using exploratory data analysis,
-      visualization, and statistical methods.
-    </p >
-    <p>
-      <a href="https://github.com/MaggieShao596/sex-differences-obesity-predictors"
-         target="_blank">
-        View on GitHub
-      </a >
-    </p >
-    < img src="bmi_calories_by_sex.png" alt="BMI vs Calories Burned" width="500" />
-    <p>
-      Calories burned during workouts show a weak relationship with BMI across genders,
-      suggesting that BMI is influenced by multiple factors beyond exercise alone.
-    </p >
+    <div class="projects-grid">
+      <div class="project-card">
+        <img src="project1.png" alt="Real Estate Project">
+        <h3>Real Estate Market Trends</h3>
+        <p>
+          A data visualization project analyzing housing prices, sales trends,
+          and regional differences using Python, Pandas, and Matplotlib.
+        </p>
+      </div>
 
-    <h3>Project 2: Song Recommender System | UC San Diego</h3>
-    <p><em>Oct 2024 – Nov 2024</em></p >
-    <ul>
-      <li>Analyzed a large song dataset and achieved a score of 50.9/52.</li>
-      <li>Built a recommender system in Python using Pandas.</li>
-      <li>Created effective visualizations to communicate insights.</li>
-    </ul>
+      <div class="project-card">
+        <img src="project2.png" alt="Data Viz Project">
+        <h3>BMI & Calories Analysis</h3>
+        <p>
+          Visual analysis of BMI and calorie burn patterns using Seaborn and Plotly
+          to uncover health-related insights.
+        </p>
+      </div>
+    </div>
+  </section>
 
-    <h3>Project 3: Line Follower Robot</h3>
-    <p><em>Sep 2023 – Jun 2024</em></p >
-    <ul>
-      <li>Assembled robot and integrated grayscale sensors.</li>
-      <li>Self-taught C++ and Arduino programming.</li>
-      <li>Showcased project at a Science Fair.</li>
-    </ul>
-
-    <h3>Project 4: TV Show Reboot Predictor</h3>
-    <p><em>Nov 2024 – Dec 2024</em></p >
-    <ul>
-      <li>Analyzed the "Friends" dataset using Python.</li>
-      <li>Predicted successful reboot features.</li>
-    </ul>
-
-    <h4>Example Image</h4>
-    < img src="https://github.com/user-attachments/assets/84ba369a-e536-4758-86ef-10fa7f2166c6"
-         width="500" />
-  </div>
-
-  <!-- Skills -->
-  <div class="content" id="skills">
+  <!-- ===== SKILLS ===== -->
+  <section id="skills">
     <h2>Skills</h2>
-    < img src="https://github.com/user-attachments/assets/c62e1b9d-4a21-41ac-b707-05786e100a11"
-         alt="Skills" />
-  </div>
+    <div class="skills-list">
+      <p><strong>Languages:</strong> Python, Java, SQL, R (basic), JavaScript (basic)</p>
+      <p><strong>Data & Visualization:</strong> Pandas, NumPy, Matplotlib, Seaborn, Plotly, Tableau, Excel (Advanced)</p>
+      <p><strong>Soft Skills:</strong> Data Storytelling, Project Management, Team Collaboration, Problem-Solving, Communication</p>
+      <p><strong>Certifications:</strong> Google Data Analytics Certificate, CodePath Technical Interview Prep</p>
+    </div>
+  </section>
 
-  <!-- Contact -->
-  <div class="content" id="contact">
+  <!-- ===== CONTACT ===== -->
+  <section id="contact">
     <h2>Contact</h2>
-    <p>Email: yis082@ucsd.edu | maggie050906@gmail.com</p >
-    <p>LinkedIn: <a href="https://www.linkedin.com/in/maggie-shao-7079302b0" target="_blank">
-      linkedin.com/in/maggie-shao-7079302b0</a ></p >
-    <p>GitHub: <a href="https://github.com/MaggieShao596" target="_blank">
-      github.com/MaggieShao596</a ></p >
-  </div>
+    <p>Email: maggieshao@email.com</p>
+    <p>GitHub: <a href="https://github.com/MaggieShao596" target="_blank">MaggieShao596</a></p>
+  </section>
 
+  <!-- ===== FOOTER ===== -->
   <footer>
-    <p>&copy; 2025 Maggie Shao. All rights reserved.</p >
+    © 2026 Maggie Shao
   </footer>
 
 </body>
 </html>
+
 
