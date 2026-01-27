@@ -51,10 +51,10 @@ analytical expertise to address inequality and promote greater equity through in
     </li>
   </ul>
 </div>
-        <li><strong>Project 2: Song Recommender System | UC San Diego | Oct 2024 – Nov 2024</strong>
+        <strong>Project 2: Song Recommender System | UC San Diego | Oct 2024 – Nov 2024</strong>
 
     
-        <li><strong>Project 2: progammer, Line - Follower Robot | Sep 2023 - Jun 2024</strong>
+        <strong>Project 2: progammer, Line - Follower Robot | Sep 2023 - Jun 2024</strong>
 
 
 Collaborated with team members to initiate and develop the “Line Follower Robot” project.<br>
