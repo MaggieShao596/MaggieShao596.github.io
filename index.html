@@ -91,6 +91,25 @@
       padding: 40px 0;
       color: #777;
     }
+    /* ===== Social Links ===== */
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.social-links img {
+  width: 32px;
+  height: 32px;
+  opacity: 0.85;
+  transition: all 0.2s ease;
+}
+
+.social-links img:hover {
+  opacity: 1;
+  transform: translateY(-2px);
+}
   </style>
 </head>
 
@@ -111,17 +130,13 @@
     <img src="main_image.jpg" alt="Maggie Shao" class="profile-img" />
   </div>
 
-  <div class="social-icons">
-  <a href="https://www.linkedin.com/in/你的linkedin" target="_blank">
-    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg">
+  <div class="social-links">
+  <a href="https://www.linkedin.com/in/你的linkedin用户名" target="_blank">
+    <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg" alt="LinkedIn">
   </a>
 
-  <a href="https://github.com/MaggieShao596" target="_blank">
-    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg">
-  </a>
-
-  <a href="https://www.instagram.com/你的用户名" target="_blank">
-    <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/instagram.svg">
+  <a href="https://github.com/你的github用户名" target="_blank">
+    <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/github.svg" alt="GitHub">
   </a>
 </div>
   <!-- ===== ABOUT ===== -->
@@ -240,6 +255,7 @@
 
 </body>
 </html>
+
 
 
 
