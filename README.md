@@ -47,7 +47,12 @@ analytical expertise to address inequality and promote greater equity through in
         visualization, and statistical methods.
       </p>
 
-      ![BMI vs Calories Burned by Sex](bmi_calories_burned_by_sex.png)
+      <img src="bmi_calories_by_sex.png" width="500">
+
+<p>
+Calories burned during workouts show a weak relationship with BMI across genders,
+suggesting BMI is influenced by multiple factors beyond exercise alone.
+</p>
     </li>
   </ul>
 </div>
