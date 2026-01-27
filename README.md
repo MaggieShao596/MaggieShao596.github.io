@@ -38,23 +38,14 @@ analytical expertise to address inequality and promote greater equity through in
 <div class="content" id="projects">
   <h2>Projects</h2>
 
-  <ul>
-    <li>
-      <strong>Project 1: Sex Differences in Obesity Predictors | Sep 2025 – Dec 2025</strong>
-      <p>
-        This project analyzes obesity-related health data to identify key predictors of BMI
-        and examine how these factors differ across sex using exploratory data analysis,
-        visualization, and statistical methods.
-      </p>
+  ### Project 1: Sex Differences in Obesity Predictors  
+*Sep 2025 – Dec 2025*
 
-      <img src="bmi_calories_by_sex.png" width="500">
+This project analyzes obesity-related health data to identify key predictors of BMI and examine how these factors differ across sex using exploratory data analysis, visualization, and statistical methods.
 
-<p>
-Calories burned during workouts show a weak relationship with BMI across genders,
-suggesting BMI is influenced by multiple factors beyond exercise alone.
-</p>
-    </li>
-  </ul>
+![BMI vs Calories Burned by Sex](bmi_calories_by_sex.png)
+
+Calories burned during workouts show a weak relationship with BMI across genders, suggesting BMI is influenced by multiple factors beyond exercise alone.
 </div>
         <strong>Project 2: Song Recommender System | UC San Diego | Oct 2024 – Nov 2024</strong>
 
