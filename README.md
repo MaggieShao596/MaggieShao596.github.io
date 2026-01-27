@@ -41,7 +41,7 @@ analytical expertise to address inequality and promote greater equity through in
   ### Project 1: Sex Differences in Obesity Predictors  
 *Sep 2025 – Dec 2025*
 
-This project analyzes obesity-related health data to identify key predictors of BMI and examine how these factors differ across sex using exploratory data analysis, visualization, and statistical methods.
+This project analyzes obesity-related health data to identify key predictors of BMI and examine how these factors differ across sex using exploratory data analysis, visualization, and statistical methods.[View on GitHub](https://github.com/MaggieShao596/sex-differences-obesity-predictors)
 
 ![BMI vs Calories Burned by Sex](bmi_calories_by_sex.png)
 
