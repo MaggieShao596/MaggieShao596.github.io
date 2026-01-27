@@ -47,7 +47,7 @@ analytical expertise to address inequality and promote greater equity through in
         visualization, and statistical methods.
       </p>
 
-      <img src="bmi_calories_burned_by_sex.png" width="500">
+      ![BMI vs Calories Burned by Sex](bmi_calories_burned_by_sex.png)
     </li>
   </ul>
 </div>
