@@ -20,7 +20,7 @@
     }
 
     section {
-      max-width: 900px;
+      max-width: 1000px;
       margin: 0 auto;
       padding: 60px 20px;
     }
@@ -58,30 +58,42 @@
     /* ===== Projects ===== */
     .projects-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 24px;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 28px;
       margin-top: 30px;
     }
 
     .project-card {
       background: white;
-      border-radius: 12px;
-      padding: 18px;
-      box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+      border-radius: 14px;
+      padding: 22px;
+      box-shadow: 0 8px 22px rgba(0,0,0,0.08);
       transition: transform 0.2s ease;
     }
 
     .project-card:hover {
-      transform: translateY(-4px);
+      transform: translateY(-6px);
     }
 
     .project-card img {
       width: 100%;
       border-radius: 10px;
-      margin-bottom: 12px;
+      margin-bottom: 14px;
     }
 
     .project-card p {
+      line-height: 1.6;
+      margin-bottom: 12px;
+    }
+
+    .project-card h4 {
+      margin: 14px 0 6px;
+      color: #111827;
+    }
+
+    .project-card ul {
+      padding-left: 18px;
+      margin-bottom: 12px;
       line-height: 1.6;
     }
 
@@ -89,6 +101,12 @@
       color: #3b82f6;
       text-decoration: none;
       font-weight: 600;
+    }
+
+    .tools {
+      font-size: 14px;
+      color: #555;
+      margin-top: 8px;
     }
 
     /* ===== Footer ===== */
@@ -116,27 +134,51 @@
   <section>
     <h2>Projects</h2>
     <p>
-      A selection of data analysis and visualization projects showcasing my
-      skills in Python, data storytelling, and analytical thinking.
+      A curated selection of data analysis and visualization projects demonstrating
+      my skills in data storytelling, statistical analysis, and machine learning.
     </p>
 
     <div class="projects-grid">
 
       <!-- Project 1 -->
       <div class="project-card">
-        <img src="project1.png" alt="Real Estate Market Trends Project">
+        <img src="project_california.png" alt="California Real Estate Market Analysis">
 
-        <h3>Real Estate Market Trends Analysis</h3>
+        <h3>California Real Estate Market Analysis</h3>
 
         <p>
-          Analyzed housing prices, sales volume, and regional trends using
-          Python, Pandas, and Matplotlib to uncover insights into market behavior.
+          A data analysis and visualization project focused on exploring California’s residential
+          real estate market trends and pricing patterns, emphasizing clear data storytelling.
+        </p>
+
+        <h4>Background & Motivation</h4>
+        <p>
+          The California housing market has long been one of the most dynamic and complex in the
+          U.S., with prices influenced by supply shortages, demand growth, and regional disparities.
+          This analysis aims to uncover trends in pricing, inventory, and key property features.
+        </p>
+
+        <h4>Data & Methods</h4>
+        <ul>
+          <li>Data cleaning and feature engineering to refine the dataset</li>
+          <li>Exploratory data analysis using Pandas and Seaborn</li>
+          <li>Visualized price distributions and relationships with key variables</li>
+          <li>Compared multiple regression and ensemble methods for predictive insights</li>
+        </ul>
+
+        <h4>Key Insights</h4>
+        <ul>
+          <li>Location, living area, and property amenities significantly influence pricing</li>
+          <li>Ensemble models such as Gradient Boosting and XGBoost performed best in prediction</li>
+          <li>Log transformation improved model stability and interpretability</li>
+        </ul>
+
+        <p class="tools">
+          Tools & Skills: Python, Pandas, NumPy, Matplotlib, Seaborn, Scikit-Learn, Data Visualization
         </p>
 
         <p>
-          🔗
-          <a href="https://github.com/MaggieShao596/real_estate_price_analysis.git"
-             target="_blank">
+          🔗 <a href="https://github.com/MaggieShao596/California-Real-Estate-Market-Analysis" target="_blank">
             View on GitHub
           </a>
         </p>
@@ -144,19 +186,45 @@
 
       <!-- Project 2 -->
       <div class="project-card">
-        <img src="project2.png" alt="BMI and Calories Data Visualization">
+        <img src="project_obesity.png" alt="Sex Differences in Obesity Predictors">
 
-        <h3>Sex Differences Obesity Predictors</h3>
+        <h3>Sex Differences in Obesity Predictors</h3>
 
         <p>
-          Explored the relationship between BMI, gender, and calorie expenditure
-          through interactive and static visualizations using Seaborn and Plotly.
+          A health data analysis project examining how biological sex relates to BMI,
+          calorie expenditure, and other physiological indicators through statistical
+          analysis and visualization.
+        </p>
+
+        <h4>Background & Motivation</h4>
+        <p>
+          Obesity is a major public health concern worldwide, but risk factors and
+          body composition patterns often differ between males and females. This
+          project investigates these differences to better understand how biological
+          and behavioral factors contribute to obesity-related trends.
+        </p>
+
+        <h4>Data & Methods</h4>
+        <ul>
+          <li>Cleaned and preprocessed health and activity datasets</li>
+          <li>Performed exploratory data analysis using Pandas and Seaborn</li>
+          <li>Compared BMI, calorie burn, and activity metrics by sex</li>
+          <li>Built interactive visualizations using Plotly for deeper exploration</li>
+        </ul>
+
+        <h4>Key Insights</h4>
+        <ul>
+          <li>Clear differences observed in calorie expenditure patterns between sexes</li>
+          <li>BMI distributions varied significantly across demographic groups</li>
+          <li>Visualization revealed nonlinear relationships between activity and BMI</li>
+        </ul>
+
+        <p class="tools">
+          Tools & Skills: Python, Pandas, Seaborn, Plotly, Data Visualization, Exploratory Data Analysis
         </p>
 
         <p>
-          🔗
-          <a href="https://github.com/MaggieShao596/sex-differences-obesity-predictors.git"
-             target="_blank">
+          🔗 <a href="https://github.com/MaggieShao596/Sex-Differences-Obesity-Predictors" target="_blank">
             View on GitHub
           </a>
         </p>
@@ -164,19 +232,43 @@
 
       <!-- Project 3 -->
       <div class="project-card">
-        <img src="project3.png" alt="Friends Data Visualization Project">
+        <img src="project_friends.png" alt="Friends TV Show Dialogue Sentiment Analysis">
 
-        <h3>Friends TV Show Dialogue Sentiment Visualization</h3>
+        <h3>Friends TV Show Dialogue & Sentiment Analysis</h3>
 
         <p>
-          Analyzed narrative structure, emotional trends, and gender representation
-          in the TV series <em>Friends</em> using Python, Pandas, and Seaborn.
+          A text and sentiment analysis project exploring emotional trends, narrative
+          structure, and character representation in the TV series <em>Friends</em>.
+        </p>
+
+        <h4>Background & Motivation</h4>
+        <p>
+          Television narratives reflect social dynamics and character development over time.
+          This project analyzes dialogue data from <em>Friends</em> to understand emotional arcs,
+          screen presence, and gender representation using data-driven storytelling.
+        </p>
+
+        <h4>Data & Methods</h4>
+        <ul>
+          <li>Processed and structured dialogue transcripts for analysis</li>
+          <li>Performed sentiment analysis to track emotional changes across episodes</li>
+          <li>Analyzed character dialogue frequency and narrative prominence</li>
+          <li>Visualized trends using Pandas and Seaborn</li>
+        </ul>
+
+        <h4>Key Insights</h4>
+        <ul>
+          <li>Emotional intensity peaks aligned with major narrative turning points</li>
+          <li>Dialogue distribution highlighted shifts in character focus across seasons</li>
+          <li>Data revealed subtle gender representation patterns in speaking time</li>
+        </ul>
+
+        <p class="tools">
+          Tools & Skills: Python, Pandas, Seaborn, NLP, Sentiment Analysis, Data Visualization
         </p>
 
         <p>
-          🔗
-          <a href="https://github.com/MaggieShao596/TV-Show-Data-Analysis-Visualizing-Narrative-Emotional-Trends-in-Friends.git"
-             target="_blank">
+          🔗 <a href="https://github.com/MaggieShao596/Friends-TV-Show-Data-Visualization" target="_blank">
             View on GitHub
           </a>
         </p>
