@@ -11,12 +11,16 @@
       margin: 0;
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial;
       color: #222;
-      padding-top: 70px; /* 给 fixed nav 让位 */
       background: #f9fafb;
+      padding-top: 70px; /* 给 fixed nav 留空间 */
     }
 
     h1, h2 {
       margin-bottom: 12px;
+    }
+
+    p {
+      line-height: 1.6;
     }
 
     section {
@@ -25,7 +29,7 @@
       padding: 60px 20px;
     }
 
-    /* ===== Navigation (TOP) ===== */
+    /* ===== Navigation ===== */
     .nav {
       position: fixed;
       top: 0;
@@ -55,34 +59,49 @@
       padding: 40px 20px 20px;
     }
 
+    .header p {
+      font-size: 1.1rem;
+      color: #555;
+    }
+
     .profile-img {
-      width: 200px;
+      width: 180px;
       border-radius: 50%;
       margin-top: 20px;
     }
 
-    /* ===== Skills ===== */
-    .skills-list {
-      line-height: 1.8;
-    }
-
-    /* ===== Projects ===== */
-    .projects-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    /* ===== Social Links ===== */
+    .social-links {
+      display: flex;
+      justify-content: center;
       gap: 20px;
+      margin-top: 20px;
     }
 
-    .project-card {
-      background: white;
-      border-radius: 10px;
-      padding: 16px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    .social-links img {
+      width: 32px;
+      height: 32px;
+      opacity: 0.85;
+      transition: all 0.2s ease;
     }
 
-    .project-card img {
-      width: 100%;
-      border-radius: 8px;
+    .social-links img:hover {
+      opacity: 1;
+      transform: translateY(-2px);
+    }
+
+    /* ===== Quick Links ===== */
+    .quick-links a {
+      display: inline-block;
+      margin-right: 16px;
+      margin-top: 10px;
+      text-decoration: none;
+      font-weight: 600;
+      color: #3b82f6;
+    }
+
+    .quick-links a:hover {
+      text-decoration: underline;
     }
 
     /* ===== Footer ===== */
@@ -90,175 +109,52 @@
       text-align: center;
       padding: 40px 0;
       color: #777;
+      font-size: 0.9rem;
     }
-    /* ===== Social Links ===== */
-.social-links {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  margin-top: 20px;
-}
-
-.social-links img {
-  width: 32px;
-  height: 32px;
-  opacity: 0.85;
-  transition: all 0.2s ease;
-}
-
-.social-links img:hover {
-  opacity: 1;
-  transform: translateY(-2px);
-}
   </style>
 </head>
 
 <body>
 
-  <!-- ===== NAVIGATION (TOP FIXED) ===== -->
+  <!-- ===== NAV ===== -->
   <div class="nav">
-  <a href="resume.html">Resume</a>
-  <a href="projects.html">Projects</a>
-  <a href="skills.html">Skills</a>
-  <a href="contact.html">Contact</a>
-</div>
+    <a href="resume.html">Resume</a>
+    <a href="projects.html">Projects</a>
+    <a href="skills.html">Skills</a>
+    <a href="contact.html">Contact</a>
+  </div>
 
   <!-- ===== HEADER ===== -->
   <div class="header">
     <h1>Maggie Shao</h1>
+    <p>Data Science Student @ UC San Diego</p>
     <img src="main_image.jpg" alt="Maggie Shao" class="profile-img" />
   </div>
 
+  <!-- ===== SOCIAL LINKS ===== -->
   <div class="social-links">
-  <a href="https://www.linkedin.com/in/maggie--shao" target="_blank">
-    <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg" alt="LinkedIn">
-  </a>
+    <a href="https://www.linkedin.com/in/maggie--shao" target="_blank">
+      <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg" alt="LinkedIn">
+    </a>
+    <a href="https://github.com/maggieshao596" target="_blank">
+      <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/github.svg" alt="GitHub">
+    </a>
+  </div>
 
-  <a href="https://github.com/maggieshao596" target="_blank">
-    <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/github.svg" alt="GitHub">
-  </a>
-</div>
   <!-- ===== ABOUT ===== -->
-  <section id="about">
+  <section>
     <h2>About Me</h2>
     <p>
-      Hi, I'm Maggie Shao 👋! I'm a student at the University of California, San Diego.
-      I have a deep love for data and a curiosity about where they can lead me.
-      Hi! I’m Maggie, a sophomore at UC San Diego double majoring in Data Science. 
-      Recently, I’ve been learning and working with different machine learning models 
-      and data analytics techniques through coursework, projects, and internships. 
-      If you have any questions or would like to connect or work on a project together, 
-      feel free to reach out to me at yis082@ucsd.edu.
+      I’m a sophomore at the University of California, San Diego majoring in Data Science.
+      I’m passionate about data analysis, machine learning, and transforming data into
+      meaningful insights through real-world projects.
     </p>
-  </section>
 
-  <!-- ===== RESUME ===== -->
-<section id="resume">
-  <h2>Resume</h2>
-  <p>
-    View my resume here →
-    <a 
-      href="https://drive.google.com/file/d/10B_6zAJGsaSisB5U44j5iJgR27SoCVxb/view?usp=sharing"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      Resume (PDF)
-    </a>
-  </p>
-</section>
-
-  <!-- ===== PROJECTS ===== -->
-<section id="projects">
-  <h2>Projects</h2>
-
-  <div class="projects-grid">
-
-    <!-- Project 1 -->
-    <div class="project-card">
-      <img src="project1.png" alt="Real Estate Market Trends Project">
-
-      <h3>Real Estate Market Trends Analysis</h3>
-
-      <p>
-        A data visualization project analyzing housing prices, sales volume,
-        and regional trends using Python, Pandas, and Matplotlib.
-      </p>
-
-      <p>
-        🔗 <a href="https://github.com/MaggieShao596/real_estate_price_analysis.git"
-             target="_blank">
-             View on GitHub
-           </a>
-      </p>
-    </div>
-
-    <!-- Project 2 -->
-    <div class="project-card">
-      <img src="project2.png" alt="BMI and Calories Data Visualization">
-
-      <h3>Sex Differences Obesity Predictors</h3>
-
-      <p>
-        Explored the relationship between BMI, gender, and calorie expenditure
-        through visual analysis using Seaborn and Plotly.
-      </p>
-
-      <p>
-        🔗 <a href="https://github.com/MaggieShao596/sex-differences-obesity-predictors.git"
-             target="_blank">
-             View on GitHub
-           </a>
-      </p>
-    </div>
-
-    <div class="project-card">
-  <img src="project3.png" alt="Friends Data Visualization Project">
-
-  <h3>Friends TV Show Dialogue Sentiment Visualization</h3>
-
-  <p>
-    An independent data visualization project analyzing narrative structure,
-    emotional trends, and gender representation in the TV series <em>Friends</em>.
-    Built with Python, Pandas, Matplotlib, and Seaborn to highlight storytelling
-    patterns across seasons.
-  </p>
-
-  <p>
-        🔗 <a href="https://github.com/MaggieShao596/TV-Show-Data-Analysis-Visualizing-Narrative-Emotional-Trends-in-Friends.git"
-             target="_blank">
-             View on GitHub
-           </a>
-      </p>
-    </div>
-</section>
-
-  <!-- ===== SKILLS ===== -->
-  <section id="skills">
-    <h2>Skills</h2>
-    <div class="skills-list">
-      <p><strong>Languages:</strong> Python, Java, SQL, R (basic), JavaScript (basic)</p>
-      <p><strong>Data & Visualization:</strong> Pandas, NumPy, Matplotlib, Seaborn, Plotly, Tableau, Excel (Advanced)</p>
-      <p><strong>Soft Skills:</strong> Data Storytelling, Project Management, Team Collaboration, Problem-Solving, Communication</p>
-      <p><strong>Certifications:</strong> Google Data Analytics Certificate, CodePath Technical Interview Prep</p>
+    <div class="quick-links">
+      <a href="projects.html">→ View My Projects</a>
+      <a href="resume.html">→ View My Resume</a>
     </div>
   </section>
-
-  <!-- ===== CONTACT ===== -->
-  <section id="contact">
-  <h2>Contact</h2>
-
-  <p>Email: 
-    <a href="mailto:maggie050906@gmail.com">
-      maggie050906@gmail.com
-    </a>
-  </p>
-
-  <p>GitHub: 
-    <a href="https://github.com/Maggieshao596" target="_blank">
-      Maggieshao596
-    </a>
-  </p>
-</section>
 
   <!-- ===== FOOTER ===== -->
   <footer>
@@ -267,16 +163,3 @@
 
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
