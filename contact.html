@@ -18,16 +18,17 @@
       max-width: 800px;
       margin: 0 auto;
       padding: 60px 20px;
-      text-align: center;
+      text-align: left; /* 👈 改成左对齐 */
     }
 
     h2 {
-      margin-bottom: 10px;
+      margin-bottom: 16px;
     }
 
     p {
       line-height: 1.7;
-      margin-bottom: 20px;
+      margin-bottom: 24px;
+      font-size: 17px;
     }
 
     /* ===== Navigation ===== */
@@ -60,24 +61,31 @@
       padding-bottom: 4px;
     }
 
-    /* ===== Contact Cards ===== */
+    /* ===== Contact Box ===== */
     .contact-box {
       background: white;
-      padding: 24px;
-      border-radius: 12px;
-      box-shadow: 0 6px 18px rgba(0,0,0,0.06);
-      margin-top: 30px;
+      padding: 28px;
+      border-radius: 14px;
+      box-shadow: 0 8px 22px rgba(0,0,0,0.08);
+      margin-top: 20px;
     }
 
     .contact-item {
-      margin: 16px 0;
+      margin: 18px 0;
       font-size: 16px;
+    }
+
+    .contact-item strong {
+      display: inline-block;
+      width: 90px;
+      color: #444;
     }
 
     .contact-item a {
       color: #3b82f6;
       text-decoration: none;
       font-weight: 600;
+      word-break: break-all;
     }
 
     .contact-item a:hover {
@@ -103,6 +111,7 @@
     <a href="contact.html" class="active">Contact</a>
   </div>
 
+  <!-- ===== CONTENT ===== -->
   <section>
     <h2>Contact</h2>
     <p>
@@ -113,19 +122,24 @@
 
     <div class="contact-box">
       <div class="contact-item">
-        📧 Email: 
-        <a href="mailto:your.email@example.com">your.email@example.com</a>
+        <strong>Email 1:</strong>
+        <a href="mailto:yis082@ucsd.edu">yis082@ucsd.edu</a>
       </div>
 
       <div class="contact-item">
-        💼 LinkedIn: 
+        <strong>Email 2:</strong>
+        <a href="mailto:maggie050906@gmail.com">maggie050906@gmail.com</a>
+      </div>
+
+      <div class="contact-item">
+        <strong>LinkedIn:</strong>
         <a href="https://www.linkedin.com/in/maggie--shao" target="_blank">
           linkedin.com/in/maggie--shao
         </a>
       </div>
 
       <div class="contact-item">
-        💻 GitHub: 
+        <strong>GitHub:</strong>
         <a href="https://github.com/maggieshao596" target="_blank">
           github.com/maggieshao596
         </a>
