@@ -1,149 +1,104 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Contact | Maggie Shao</title>
-
-  <style>
-    body {
-      margin: 0;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial;
-      color: #222;
-      padding-top: 70px;
-      background: #f9fafb;
-    }
-
-    section {
-      max-width: 800px;
-      margin: 0 auto;
-      padding: 60px 20px;
-      text-align: left; /* 左对齐 */
-    }
-
-    h2 {
-      margin-bottom: 16px;
-    }
-
-    p {
-      line-height: 1.7;
-      margin-bottom: 24px;
-      font-size: 17px;
-    }
-
-    /* ===== Navigation ===== */
-    .nav {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      background: white;
-      border-bottom: 1px solid #ddd;
-      z-index: 1000;
-      text-align: center;
-      padding: 14px 0;
-    }
-
-    .nav a {
-      margin: 0 16px;
-      text-decoration: none;
-      font-weight: 600;
-      color: #333;
-    }
-
-    .nav a:hover {
-      color: #3b82f6;
-    }
-
-    .nav a.active {
-      color: #3b82f6;
-      border-bottom: 2px solid #3b82f6;
-      padding-bottom: 4px;
-    }
-
-    /* ===== Contact Box ===== */
-    .contact-box {
-      background: white;
-      padding: 28px;
-      border-radius: 14px;
-      box-shadow: 0 8px 22px rgba(0,0,0,0.08);
-      margin-top: 20px;
-    }
-
-    .contact-item {
-      margin: 18px 0;
-      font-size: 16px;
-    }
-
-    .contact-item a {
-      color: #3b82f6;
-      text-decoration: none;
-      font-weight: 600;
-      word-break: break-all;
-    }
-
-    .contact-item a:hover {
-      text-decoration: underline;
-    }
-
-    footer {
-      text-align: center;
-      padding: 40px 0;
-      color: #777;
-    }
-  </style>
+  <link rel="stylesheet" href="style.css">
 </head>
 
-<body>
+<body class="contact-page">
 
-  <!-- ===== NAV ===== -->
-  <div class="nav">
+  <nav class="nav" aria-label="Main navigation">
     <a href="index.html">Home</a>
     <a href="about.html">About</a>
     <a href="resume.html">Resume</a>
     <a href="projects.html">Projects</a>
     <a href="skills.html">Skills</a>
-    <a href="contact.html" class="active">Contact</a>
-  </div>
+    <a href="contact.html" aria-current="page">Contact</a>
+    <a href="https://github.com/maggieshao596"
+       target="_blank"
+       rel="noopener noreferrer">GitHub</a>
+  </nav>
 
-  <!-- ===== CONTENT ===== -->
-  <section>
-    <h2>Contact</h2>
-    <p>
-      Thanks for visiting my portfolio! I’m always open to connecting about data science,
-      research opportunities, internships, or collaborative projects. Feel free to reach out
-      through any of the platforms below.
-    </p>
+  <main>
+    <section>
+      <h1>Let's connect</h1>
+      <p>
+        Have a question, a project idea, or just want to say hi?
+        Send me a message or connect through the links below.
+      </p>
 
-    <div class="contact-box">
-      <div class="contact-item">
-        📧 Email (School): 
-        <a href="mailto:yis082@ucsd.edu">yis082@ucsd.edu</a>
+      <div class="contact-box">
+        <h2>Send a message</h2>
+
+        <form action="mailto:yis082@ucsd.edu"
+              method="POST"
+              enctype="text/plain">
+
+          <label>
+            Your email
+            <input type="email"
+                   name="email"
+                   placeholder="you@example.com"
+                   autocomplete="email"
+                   required>
+          </label>
+
+          <label>
+            Subject
+            <input type="text"
+                   name="subject"
+                   placeholder="What would you like to discuss?"
+                   required>
+          </label>
+
+          <label>
+            Message
+            <textarea name="body"
+                      rows="6"
+                      placeholder="Write your message here..."
+                      required></textarea>
+          </label>
+
+          <button type="submit">Open email draft →</button>
+          <p class="form-note">
+            This opens your email app. Review the draft there
+            before sending.
+          </p>
+        </form>
       </div>
 
-      <div class="contact-item">
-        📧 Email (Personal): 
-        <a href="mailto:maggie050906@gmail.com">maggie050906@gmail.com</a>
-      </div>
+      <div class="contact-box">
+        <h2>Other ways to reach me</h2>
 
-      <div class="contact-item">
-        💼 LinkedIn: 
-        <a href="https://www.linkedin.com/in/maggie--shao" target="_blank">
-          linkedin.com/in/maggie--shao
-        </a>
-      </div>
+        <p>
+          <strong>School email:</strong>
+          <a href="mailto:yis082@ucsd.edu">yis082@ucsd.edu</a>
+        </p>
 
-      <div class="contact-item">
-        💻 GitHub: 
-        <a href="https://github.com/maggieshao596" target="_blank">
-          github.com/maggieshao596
-        </a>
+        <p>
+          <strong>Personal email:</strong>
+          <a href="mailto:maggie050906@gmail.com">
+            maggie050906@gmail.com
+          </a>
+        </p>
+
+        <p>
+          <a href="https://www.linkedin.com/in/maggie--shao"
+             target="_blank"
+             rel="noopener noreferrer">LinkedIn ↗</a>
+          ·
+          <a href="https://github.com/maggieshao596"
+             target="_blank"
+             rel="noopener noreferrer">GitHub ↗</a>
+        </p>
       </div>
-    </div>
-  </section>
+    </section>
+  </main>
 
   <footer>
-    © 2026 Maggie Shao
+    <p>© 2026 Maggie Shao</p>
   </footer>
 
 </body>
