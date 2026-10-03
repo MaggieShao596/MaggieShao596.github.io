@@ -1,87 +1,205 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Resume | Maggie Shao</title>
-
-  <style>
-    body {
-      margin: 0;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial;
-      background: #f9fafb;
-      padding-top: 70px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-    }
-
-    /* ===== Navigation ===== */
-    .nav {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      background: white;
-      border-bottom: 1px solid #ddd;
-      z-index: 1000;
-      text-align: center;
-      padding: 14px 0;
-    }
-
-    .nav a {
-      margin: 0 16px;
-      text-decoration: none;
-      font-weight: 600;
-      color: #333;
-    }
-
-    .nav a:hover {
-      color: #3b82f6;
-    }
-
-    .nav a.active {
-      color: #3b82f6;
-      border-bottom: 2px solid #3b82f6;
-      padding-bottom: 4px;
-    }
-
-    /* ===== Resume Button ===== */
-    .resume-btn {
-      padding: 16px 28px;
-      background-color: #3b82f6;
-      color: white;
-      font-size: 18px;
-      font-weight: 600;
-      text-decoration: none;
-      border-radius: 10px;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.08);
-      transition: background 0.2s ease, transform 0.15s ease;
-    }
-
-    .resume-btn:hover {
-      background-color: #2563eb;
-      transform: translateY(-2px);
-    }
-  </style>
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-
-  <!-- ===== NAV ===== -->
-  <div class="nav">
+  <nav class="nav">
     <a href="index.html">Home</a>
-    <a href="resume.html" class="active">Resume</a>
+    <a href="about.html">About</a>
+    <a href="resume.html" aria-current="page">Resume</a>
     <a href="projects.html">Projects</a>
     <a href="skills.html">Skills</a>
     <a href="contact.html">Contact</a>
-  </div>
+    <a href="https://github.com/maggieshao596"
+       target="_blank"
+       rel="noopener noreferrer">GitHub</a>
+  </nav>
 
-  <!-- ===== CENTER BUTTON ===== -->
-  <a href="Maggie_Shao_Resume.pdf" class="resume-btn" target="_blank">
-    View My Resume
-  </a>
+  <main>
+    <header class="header">
+      <h1>Maggie Shao — Resume</h1>
+      <p>
+        Sunnyvale, CA |
+        <a href="mailto:yis082@ucsd.edu">yis082@ucsd.edu</a>
+      </p>
+      <p>
+        <a href="Maggie_Shao_Resume.pdf"
+           target="_blank"
+           rel="noopener noreferrer">View PDF Resume</a>
+      </p>
+    </header>
 
+    <section aria-labelledby="education-heading">
+      <h2 id="education-heading">Education</h2>
+      <article>
+        <h3>University of California, San Diego</h3>
+        <p>La Jolla, CA</p>
+        <p>
+          <time datetime="2024-09">September 2024</time> –
+          <time datetime="2028-06">June 2028</time>
+        </p>
+        <ul>
+          <li>B.S. in Data Science</li>
+          <li>B.S. in Cognitive Science,
+              Machine Learning Specialization</li>
+          <li>GPA: 3.83</li>
+        </ul>
+      </article>
+    </section>
+
+    <section aria-labelledby="skills-heading">
+      <h2 id="skills-heading">Technical Skills</h2>
+      <ul>
+        <li><strong>Programming:</strong>
+          Python, SQL, Java, R, JavaScript, HTML</li>
+        <li><strong>Machine Learning &amp; AI:</strong>
+          scikit-learn, PyTorch, TensorFlow, Regression,
+          Random Forest, Gradient Boosting, KNN,
+          Cross-Validation, Predictive Modeling</li>
+        <li><strong>Data Engineering &amp; Analytics:</strong>
+          Pandas, NumPy, Spark, Data Cleaning,
+          Feature Engineering, Data Modeling, Batch Processing</li>
+        <li><strong>Visualization:</strong>
+          Tableau, Plotly, Matplotlib, Seaborn, Excel</li>
+        <li><strong>Development Tools:</strong> Git, GitHub</li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="experience-heading">
+      <h2 id="experience-heading">Experience</h2>
+
+      <article>
+        <h3>Data Scientist Intern — Applied Materials</h3>
+        <p>
+          Santa Clara, CA |
+          <time datetime="2026-06">June 2026</time> – Present
+        </p>
+        <ul>
+          <li>
+            Built an automated Python/SQL monitoring pipeline
+            that ran scheduled scripts across 856 contracts,
+            identifying 18 at-risk cases for proactive follow-up
+            and earlier issue detection.
+          </li>
+          <li>
+            Consolidated fragmented reporting workflows into
+            a centralized Tableau dashboard supporting 280
+            active cases and adopted by 20+ cross-functional
+            stakeholders.
+          </li>
+          <li>
+            Partnered with product, operations, and product-line
+            teams to translate business requirements into
+            issue-tracking logic, reducing contract review
+            time by 50%.
+          </li>
+        </ul>
+      </article>
+
+      <article>
+        <h3>Data Science Intern — IDX Exchange</h3>
+        <p>
+          Remote |
+          <time datetime="2025-01">January 2025</time> –
+          <time datetime="2025-04">April 2025</time>
+        </p>
+        <ul>
+          <li>
+            Built an end-to-end machine learning workflow for
+            10K+ property records, applying KNN imputation and
+            feature standardization to prepare structured data
+            for model training.
+          </li>
+          <li>
+            Trained and evaluated Random Forest and Gradient
+            Boosting regression models, improving property
+            price prediction accuracy by 12%.
+          </li>
+          <li>
+            Developed interactive Python/Plotly visualizations
+            to translate regional pricing patterns into
+            actionable market insights for stakeholders.
+          </li>
+        </ul>
+      </article>
+
+      <article>
+        <h3>Technical Support Intern —
+            Cisco Global Support Center</h3>
+        <p>
+          Remote |
+          <time datetime="2024-06">June 2024</time> –
+          <time datetime="2024-08">August 2024</time>
+        </p>
+        <ul>
+          <li>
+            Analyzed 7K+ system logs to identify recurring
+            issue patterns and translated findings into Excel
+            dashboards supporting operational decision-making
+            and process improvement.
+          </li>
+          <li>
+            Developed Python automation scripts to streamline
+            troubleshooting workflows, reducing average issue
+            resolution time by 25%.
+          </li>
+          <li>
+            Resolved 50+ end-user technical issues within SLA
+            requirements and collaborated with engineering
+            teams on escalations and root-cause investigation.
+          </li>
+        </ul>
+      </article>
+    </section>
+
+    <section aria-labelledby="projects-heading">
+      <h2 id="projects-heading">Projects</h2>
+      <article>
+        <h3>California Real Estate Market Analysis</h3>
+        <p>Python, Pandas, scikit-learn</p>
+        <ul>
+          <li>
+            Processed 178,925 California real estate listings
+            through a reproducible ML pipeline, performing
+            data cleaning, one-hot encoding, and feature
+            scaling for price prediction.
+          </li>
+          <li>
+            Trained and evaluated a scikit-learn Linear
+            Regression model, achieving R<sup>2</sup> = 0.77
+            on an 80/20 train-test split.
+          </li>
+          <li>
+            Performed residual and prediction-error diagnostics,
+            identifying higher variance among high-priced
+            properties to guide model refinement.
+          </li>
+        </ul>
+        <p><a href="projects.html">Explore my projects</a></p>
+      </article>
+    </section>
+
+    <section aria-labelledby="leadership-heading">
+      <h2 id="leadership-heading">Leadership and Affiliations</h2>
+      <ul>
+        <li>Professional Event Team Board Member —
+            Data Science Student Society @ UC San Diego</li>
+        <li>Mentor —
+            Global Ambassador Program @ UC San Diego</li>
+        <li>Project Specialist —
+            Women in Computing @ UC San Diego</li>
+        <li>Community Member — CodePath</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2026 Maggie Shao</p>
+  </footer>
 </body>
 </html>
