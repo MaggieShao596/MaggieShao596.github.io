@@ -4,157 +4,202 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Skills | Maggie Shao</title>
+  <link rel="stylesheet" href="style.css" />
 
   <style>
-    body {
+    .skills-page {
       margin: 0;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial;
+      padding: 0;
+      font: 100%/1.5 system-ui;
       color: #222;
-      padding-top: 70px;
       background: #f9fafb;
     }
 
-    section {
+    .skills-page .nav {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px 20px;
+      padding: 14px 16px;
+      background: white;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .skills-page .nav a {
+      margin: 0;
+      color: #333;
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    .skills-page .nav a:hover,
+    .skills-page .nav a[aria-current="page"] {
+      color: #2563eb;
+    }
+
+    .skills-page .nav a[aria-current="page"] {
+      border-bottom: 2px solid #2563eb;
+    }
+
+    .skills-page main {
       max-width: 900px;
       margin: 0 auto;
-      padding: 60px 20px;
+      padding: 44px 20px;
     }
 
-    h2 {
-      margin-bottom: 10px;
+    .skills-page h1 {
+      margin: 0 0 14px;
+      font-size: clamp(30px, 5vw, 40px);
     }
 
-    h3 {
-      margin-top: 30px;
-      margin-bottom: 10px;
+    .skills-page .intro {
+      max-width: 760px;
+      margin: 0;
+      color: #555;
+      line-height: 1.7;
+    }
+
+    .skills-page .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(
+        auto-fit,
+        minmax(min(100%, 300px), 1fr)
+      );
+      gap: 20px;
+      margin-top: 28px;
+    }
+
+    .skills-page .skills-category {
+      min-width: 0;
+      padding: 24px;
+      background: white;
+      border: 1px solid #e5e7eb;
+      border-radius: 14px;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.04);
+    }
+
+    .skills-page h2 {
+      margin: 0 0 16px;
+      font-size: 20px;
       color: #111827;
     }
 
-    p {
-      line-height: 1.6;
+    .skills-page ul {
+      margin: 0;
+      padding-left: 20px;
     }
 
-    /* ===== Navigation ===== */
-    .nav {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      background: white;
-      border-bottom: 1px solid #ddd;
-      z-index: 1000;
+    .skills-page li {
+      margin-bottom: 10px;
+      line-height: 1.7;
+    }
+
+    .skills-page li:last-child {
+      margin-bottom: 0;
+    }
+
+    .skills-page a:focus-visible {
+      outline: 2px solid #2563eb;
+      outline-offset: 4px;
+    }
+
+    .skills-page footer {
+      padding: 24px 20px 36px;
       text-align: center;
-      padding: 14px 0;
-    }
-
-    .nav a {
-      margin: 0 16px;
-      text-decoration: none;
-      font-weight: 600;
-      color: #333;
-    }
-
-    .nav a:hover {
-      color: #3b82f6;
-    }
-
-    .nav a.active {
-      color: #3b82f6;
-      border-bottom: 2px solid #3b82f6;
-      padding-bottom: 4px;
-    }
-
-    /* ===== Skills Layout ===== */
-    .skills-category {
-      background: white;
-      padding: 22px;
-      border-radius: 12px;
-      box-shadow: 0 6px 18px rgba(0,0,0,0.06);
-      margin-top: 20px;
-    }
-
-    ul {
-      padding-left: 18px;
-      line-height: 1.8;
-    }
-
-    footer {
-      text-align: center;
-      padding: 40px 0;
       color: #777;
+      font-size: 14px;
+    }
+
+    @media (max-width: 600px) {
+      .skills-page main {
+        padding: 28px 16px;
+      }
+
+      .skills-page .skills-category {
+        padding: 20px;
+      }
     }
   </style>
 </head>
 
-<body>
+<body class="skills-page">
 
-  <!-- ===== NAV ===== -->
-  <div class="nav">
+  <nav class="nav" aria-label="Main navigation">
     <a href="index.html">Home</a>
+    <a href="about.html">About</a>
     <a href="resume.html">Resume</a>
     <a href="projects.html">Projects</a>
-    <a href="skills.html" class="active">Skills</a>
+    <a href="skills.html" aria-current="page">Skills</a>
     <a href="contact.html">Contact</a>
-  </div>
+    <a href="https://github.com/maggieshao596"
+       target="_blank"
+       rel="noopener noreferrer">GitHub</a>
+  </nav>
 
-  <section>
-    <h2>Skills</h2>
-    <p>
-      As a data science student, I am continuously developing my technical toolkit
-      for working with data, building models, and communicating analytical results.
-      Below is a summary of the tools and technologies I use most often, along with
-      languages and areas I am actively learning.
+  <main>
+    <h1>Skills</h1>
+
+    <p class="intro">
+      These are the tools and skills I’m developing through
+      coursework, projects, and internships. I use them to
+      prepare data, build models, and explain what I find.
     </p>
 
-    <div class="skills-category">
-      <h3>Programming Languages</h3>
-      <ul>
-        <li><strong>Python</strong> – Data analysis, visualization, and machine learning</li>
-        <li><strong>Java</strong> – Currently learning to strengthen programming fundamentals</li>
-        <li>SQL – Basic querying and data retrieval</li>
-      </ul>
-    </div>
+    <div class="skills-grid">
 
-    <div class="skills-category">
-      <h3>Data Analysis & Visualization</h3>
-      <ul>
-        <li>Pandas & NumPy for data cleaning and manipulation</li>
-        <li>Matplotlib & Seaborn for statistical visualization</li>
-        <li>Plotly for interactive visualizations</li>
-        <li>Exploratory Data Analysis (EDA) and feature exploration</li>
-      </ul>
-    </div>
+      <article class="skills-category">
+        <h2>Programming Languages</h2>
+        <ul>
+          <li><strong>Python</strong> — Data analysis, visualization, and machine learning</li>
+          <li><strong>Java</strong> — Learning and strengthening programming fundamentals</li>
+          <li><strong>SQL</strong> — Basic querying and data retrieval</li>
+        </ul>
+      </article>
 
-    <div class="skills-category">
-      <h3>Machine Learning</h3>
-      <ul>
-        <li>Scikit-Learn for regression and classification models</li>
-        <li>Model evaluation using appropriate performance metrics</li>
-        <li>Feature engineering and data preprocessing</li>
-        <li>Understanding of ensemble methods (e.g., Random Forest, Gradient Boosting)</li>
-      </ul>
-    </div>
+      <article class="skills-category">
+        <h2>Data Analysis &amp; Visualization</h2>
+        <ul>
+          <li>Pandas and NumPy for data cleaning and manipulation</li>
+          <li>Matplotlib and Seaborn for statistical visualization</li>
+          <li>Plotly for interactive visualizations</li>
+          <li>Exploratory data analysis and feature exploration</li>
+        </ul>
+      </article>
 
-    <div class="skills-category">
-      <h3>Data & Research Skills</h3>
-      <ul>
-        <li>Data storytelling and communicating insights clearly</li>
-        <li>Statistical thinking and interpretation of results</li>
-        <li>Working with real-world, messy datasets</li>
-        <li>Reproducible analysis and structured workflows</li>
-      </ul>
-    </div>
+      <article class="skills-category">
+        <h2>Machine Learning</h2>
+        <ul>
+          <li>Scikit-learn for regression and classification</li>
+          <li>Model evaluation using appropriate performance metrics</li>
+          <li>Feature engineering and data preprocessing</li>
+          <li>Understanding of Random Forest and Gradient Boosting</li>
+        </ul>
+      </article>
 
-    <div class="skills-category">
-      <h3>Tools & Platforms</h3>
-      <ul>
-        <li>Jupyter Notebook & VS Code</li>
-        <li>Git & GitHub for version control</li>
-        <li>Microsoft Excel for data handling</li>
-      </ul>
-    </div>
+      <article class="skills-category">
+        <h2>Data &amp; Research Skills</h2>
+        <ul>
+          <li>Data storytelling and communicating insights</li>
+          <li>Statistical thinking and interpreting results</li>
+          <li>Working with real-world, messy datasets</li>
+          <li>Reproducible analysis and structured workflows</li>
+        </ul>
+      </article>
 
-  </section>
+      <article class="skills-category">
+        <h2>Tools &amp; Platforms</h2>
+        <ul>
+          <li>Jupyter Notebook and VS Code</li>
+          <li>Git and GitHub for version control</li>
+          <li>Microsoft Excel for organizing and reviewing data</li>
+        </ul>
+      </article>
+
+    </div>
+  </main>
 
   <footer>
     © 2026 Maggie Shao
