@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Maggie Shao | Portfolio</title>
+  <title>Maggie Shao: Personal site and portfolio</title>
 
   <style>
     /* ===== Global ===== */
@@ -12,7 +12,6 @@
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial;
       color: #222;
       background: #f9fafb;
-      padding-top: 70px; /* 给 fixed nav 留空间 */
     }
 
     h1, h2 {
@@ -31,24 +30,23 @@
 
     /* ===== Navigation ===== */
     .nav {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      background: white;
-      border-bottom: 1px solid #ddd;
-      z-index: 1000;
-      text-align: center;
-      padding: 14px 0;
-    }
+  position: sticky;
+  top: 0;
+  background: white;
+  border-bottom: 1px solid #ddd;
+  z-index: 1000;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px 20px;
+  padding: 14px 16px;
+}
 
-    .nav a {
-      margin: 0 16px;
-      text-decoration: none;
-      font-weight: 600;
-      color: #333;
-    }
-
+.nav a {
+  text-decoration: none;
+  font-weight: 600;
+  color: #333;
+}
     .nav a:hover {
       color: #3b82f6;
     }
@@ -117,12 +115,17 @@
 <body>
 
   <!-- ===== NAV ===== -->
-  <div class="nav">
-    <a href="resume.html">Resume</a>
-    <a href="projects.html">Projects</a>
-    <a href="skills.html">Skills</a>
-    <a href="contact.html">Contact</a>
-  </div>
+  <nav class="nav">
+  <a href="index.html" aria-current="page">Home</a>
+  <a href="about.html">About</a>
+  <a href="resume.html">Resume</a>
+  <a href="projects.html">Projects</a>
+  <a href="skills.html">Skills</a>
+  <a href="contact.html">Contact</a>
+  <a href="https://github.com/maggieshao596"
+     target="_blank"
+     rel="noopener noreferrer">GitHub</a>
+</nav>
 
   <!-- ===== HEADER ===== -->
   <div class="header">
@@ -145,7 +148,7 @@
   <section>
     <h2>About Me</h2>
     <p>
-      Hi, I'm Maggie Shao, a sophomore at UC San Diego majoring in Data Science. I’m passionate about data analysis, machine learning, and transforming data into meaningful insights through real-world projects. 
+      Hi, I'm Maggie Shao, a third year at UC San Diego majoring in Data Science. I’m passionate about data analysis, machine learning, and transforming data into meaningful insights through real-world projects. 
       Recently, I’ve been learning and working with different machine learning models 
       and data analytics techniques through coursework, projects, and internships. 
       If you have any questions or would like to connect or work on a project together, 
