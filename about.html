@@ -1,1 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About | Maggie Shao</title>
+  <link rel="stylesheet" href="style.css" />
 
+  <style>
+    .about-page {
+      margin: 0;
+      padding: 0;
+      font: 100%/1.5 system-ui;
+      color: #222;
+      background: #f9fafb;
+    }
+
+    .about-page .nav {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px 20px;
+      padding: 14px 16px;
+      background: white;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .about-page .nav a {
+      margin: 0;
+      color: #333;
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    .about-page .nav a:hover,
+    .about-page .nav a[aria-current="page"] {
+      color: #2563eb;
+    }
+
+    .about-page .nav a[aria-current="page"] {
+      border-bottom: 2px solid #2563eb;
+    }
+
+    .about-page main {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 44px 20px;
+    }
+
+    .about-page h1 {
+      margin: 0 0 24px;
+      font-size: clamp(30px, 5vw, 40px);
+    }
+
+    .about-page .about-card {
+      padding: 32px;
+      background: white;
+      border: 1px solid #e5e7eb;
+      border-radius: 16px;
+    }
+
+    .about-page h2 {
+      margin: 28px 0 12px;
+      font-size: 21px;
+    }
+
+    .about-page p {
+      margin: 0 0 16px;
+      line-height: 1.7;
+    }
+
+    .about-page .page-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px 24px;
+      margin-top: 24px;
+    }
+
+    .about-page .page-links a {
+      color: #2563eb;
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    .about-page .page-links a:hover {
+      text-decoration: underline;
+    }
+
+    .about-page a:focus-visible {
+      outline: 2px solid #2563eb;
+      outline-offset: 4px;
+    }
+
+    .about-page footer {
+      padding: 24px 20px;
+      text-align: center;
+      color: #777;
+      font-size: 14px;
+    }
+
+    @media (max-width: 600px) {
+      .about-page main {
+        padding: 28px 16px;
+      }
+
+      .about-page .about-card {
+        padding: 22px;
+      }
+    }
+  </style>
+</head>
+
+<body class="about-page">
+
+  <nav class="nav" aria-label="Main navigation">
+    <a href="index.html">Home</a>
+    <a href="about.html" aria-current="page">About</a>
+    <a href="resume.html">Resume</a>
+    <a href="projects.html">Projects</a>
+    <a href="skills.html">Skills</a>
+    <a href="contact.html">Contact</a>
+    <a href="https://github.com/maggieshao596"
+       target="_blank"
+       rel="noopener noreferrer">GitHub</a>
+  </nav>
+
+  <main>
+    <h1>About Me</h1>
+
+    <div class="about-card">
+      <p>
+        Hi, I’m Maggie! I’m a third-year student at UC San Diego
+        studying Data Science. I enjoy exploring data, finding
+        patterns, and turning results into something people
+        can understand and use.
+      </p>
+
+      <h2>What I’m interested in</h2>
+      <p>
+        My interests include data analysis, machine learning,
+        and visualization. I like working on projects that
+        connect technical skills with real-world questions,
+        from housing prices to health and entertainment.
+      </p>
+
+      <h2>What I’m learning</h2>
+      <p>
+        Through coursework, projects, and internships, I’ve
+        been building my skills in preparing data, evaluating
+        models, and explaining results. I’m also learning
+        HTML and CSS to build and customize this portfolio.
+      </p>
+
+      <h2>Let’s connect</h2>
+      <p>
+        I’m happy to connect about data science, internships,
+        research, or projects we could work on together.
+      </p>
+
+      <div class="page-links">
+        <a href="projects.html">View my projects →</a>
+        <a href="resume.html">View my resume →</a>
+        <a href="contact.html">Contact me →</a>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    © 2026 Maggie Shao
+  </footer>
+
+</body>
+</html>
