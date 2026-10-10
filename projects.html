@@ -1,12 +1,17 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
   <title>Projects | Maggie Shao</title>
+
   <link rel="stylesheet" href="style.css" />
 
   <style>
+    /* ===== PAGE STYLING ===== */
+
     .projects-page {
       margin: 0;
       padding-top: 0;
@@ -15,15 +20,20 @@
       background: #f9fafb;
     }
 
+    /* ===== NAVIGATION ===== */
+
     .projects-page .nav {
       position: sticky;
       top: 0;
       z-index: 1000;
+
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
+
       gap: 10px 20px;
       padding: 14px 16px;
+
       background: white;
       border-bottom: 1px solid #ddd;
     }
@@ -33,16 +43,21 @@
       color: #333;
       font-weight: 600;
       text-decoration: none;
+      border-bottom: 2px solid transparent;
     }
 
     .projects-page .nav a:hover,
     .projects-page .nav a[aria-current="page"] {
       color: #2563eb;
+      border-bottom-color: #2563eb;
     }
 
-    .projects-page .nav a[aria-current="page"] {
-      border-bottom: 2px solid #2563eb;
+    .projects-page a:focus-visible {
+      outline: 2px solid #2563eb;
+      outline-offset: 4px;
     }
+
+    /* ===== MAIN CONTENT ===== */
 
     .projects-page main {
       max-width: 1100px;
@@ -56,6 +71,13 @@
       letter-spacing: -0.5px;
     }
 
+    .projects-page h1,
+    .projects-page h2,
+    .projects-page h3 {
+      line-height: 1.2;
+      text-wrap: balance;
+    }
+
     .projects-page .intro {
       max-width: 760px;
       margin: 0;
@@ -63,54 +85,73 @@
       line-height: 1.7;
     }
 
+    /* ===== RESPONSIVE PROJECT GRID ===== */
+
     .projects-page .projects-grid {
       display: grid;
-      grid-template-columns: repeat(
-        auto-fit,
-        minmax(min(100%, 320px), 1fr)
-      );
+
+      grid-template-columns:
+        repeat(auto-fill, minmax(15em, 1fr));
+
       gap: 24px;
       margin-top: 32px;
-      align-items: start;
+
+      align-items: stretch;
     }
 
+    /* ===== PROJECT CARDS WITH SUBGRID ===== */
+
     .projects-page .project-card {
+      display: grid;
+      grid-template-rows: subgrid;
+      grid-row: span 11;
+
       min-width: 0;
       padding: 24px;
+
       background: white;
       border: 1px solid #e5e7eb;
       border-radius: 16px;
-      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.04);
+
+      box-shadow:
+        0 6px 20px rgba(0, 0, 0, 0.04);
     }
 
     .projects-page .project-card img {
       display: block;
+
       width: 100%;
       height: auto;
-      margin-bottom: 20px;
+      aspect-ratio: 16 / 9;
+      object-fit: cover;
+
       border-radius: 10px;
     }
 
+    /* ===== PROJECT HEADINGS ===== */
+
     .projects-page .project-card h2 {
-      margin: 0 0 14px;
+      margin: 0;
       font-size: 22px;
       line-height: 1.3;
       color: #111827;
     }
 
     .projects-page .project-card h3 {
-      margin: 24px 0 8px;
+      margin: 0;
       font-size: 16px;
       color: #111827;
     }
 
+    /* ===== PROJECT TEXT ===== */
+
     .projects-page .project-card p {
-      margin: 0 0 14px;
+      margin: 0;
       line-height: 1.7;
     }
 
     .projects-page .project-card ul {
-      margin: 0 0 16px;
+      margin: 0;
       padding-left: 20px;
     }
 
@@ -118,16 +159,21 @@
       margin-bottom: 8px;
     }
 
+    /* ===== TOOLS SECTION ===== */
+
     .projects-page .tools {
       padding-top: 16px;
       border-top: 1px solid #e5e7eb;
+
       font-size: 14px;
       color: #555;
     }
 
+    /* ===== GITHUB LINKS ===== */
+
     .projects-page .project-link {
       display: inline-block;
-      margin-top: 4px;
+
       color: #2563eb;
       font-weight: 600;
       text-decoration: none;
@@ -138,17 +184,17 @@
       text-decoration: underline;
     }
 
-    .projects-page a:focus-visible {
-      outline: 2px solid #2563eb;
-      outline-offset: 4px;
-    }
+    /* ===== FOOTER ===== */
 
     .projects-page footer {
       padding: 24px 20px 36px;
       text-align: center;
+
       font-size: 14px;
       color: #777;
     }
+
+    /* ===== SMALL SCREEN ADJUSTMENTS ===== */
 
     @media (max-width: 600px) {
       .projects-page main {
@@ -159,74 +205,133 @@
         padding: 20px;
       }
     }
+
+    @media (max-width: 400px) {
+      .projects-page .projects-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
   </style>
 </head>
 
 <body class="projects-page">
 
+  <!-- ===== NAVIGATION ===== -->
+
   <nav class="nav" aria-label="Main navigation">
+
     <a href="index.html">Home</a>
+
     <a href="about.html">About</a>
+
     <a href="resume.html">Resume</a>
-    <a href="projects.html" aria-current="page">Projects</a>
+
+    <a href="projects.html" aria-current="page">
+      Projects
+    </a>
+
     <a href="skills.html">Skills</a>
+
     <a href="contact.html">Contact</a>
-    <a href="https://github.com/maggieshao596"
-       target="_blank"
-       rel="noopener noreferrer">GitHub</a>
+
+    <a
+      href="https://github.com/MaggieShao596"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      GitHub
+    </a>
+
   </nav>
 
+  <!-- ===== MAIN CONTENT ===== -->
+
   <main>
+
     <h1>Projects</h1>
+
     <p class="intro">
-      Here are some projects I’ve worked on while studying data science.
-      They explore housing prices, health data, and television dialogue
+      Here are some projects I’ve worked on while
+      studying data science. They explore housing
+      prices, health data, and television dialogue
       through data cleaning, visualization, and modeling.
     </p>
 
     <div class="projects-grid">
 
-      <!-- Project 1 -->
+      <!-- ================================== -->
+      <!-- PROJECT 1: CALIFORNIA REAL ESTATE -->
+      <!-- ================================== -->
+
       <article class="project-card">
+
         <img
           src="project1.png"
           alt="Visualization from the California real estate market analysis"
           loading="lazy"
         />
 
-        <h2>California Real Estate Market Analysis</h2>
+        <h2>
+          California Real Estate Market Analysis
+        </h2>
 
         <p>
-          An analysis of California residential real estate data,
-          exploring property features, pricing patterns, and
-          house price prediction.
+          An analysis of California residential real estate
+          data, exploring property features, pricing
+          patterns, and house price prediction.
         </p>
 
         <h3>Background &amp; Motivation</h3>
+
         <p>
-          Housing prices vary widely across California. This project
-          explores how location and property characteristics relate
-          to those differences.
+          Housing prices vary widely across California.
+          This project explores how location and property
+          characteristics relate to those differences.
         </p>
 
         <h3>Data &amp; Methods</h3>
+
         <ul>
-          <li>Cleaned and prepared 178,925 property records.</li>
-          <li>Explored price distributions and relationships between features.</li>
-          <li>Used one-hot encoding and feature scaling to prepare model inputs.</li>
-          <li>Trained and evaluated a linear regression model using an 80/20 split.</li>
+          <li>
+            Cleaned and prepared 178,925 property records.
+          </li>
+          <li>
+            Explored price distributions and relationships
+            between features.
+          </li>
+          <li>
+            Used one-hot encoding and feature scaling
+            to prepare model inputs.
+          </li>
+          <li>
+            Trained and evaluated a linear regression
+            model using an 80/20 split.
+          </li>
         </ul>
 
         <h3>Results &amp; Takeaways</h3>
+
         <ul>
-          <li>The linear regression model achieved an R² of 0.77.</li>
-          <li>Residual analysis showed greater error variation for higher-priced homes.</li>
-          <li>The project helped me practice data preparation, model evaluation, and communicating results.</li>
+          <li>
+            The linear regression model achieved
+            an R² of 0.77.
+          </li>
+          <li>
+            Residual analysis showed greater error
+            variation for higher-priced homes.
+          </li>
+          <li>
+            The project helped me practice data
+            preparation, model evaluation, and
+            communicating results.
+          </li>
         </ul>
 
         <p class="tools">
           <strong>Tools:</strong>
-          Python, Pandas, NumPy, Matplotlib, Seaborn, Scikit-learn
+          Python, Pandas, NumPy, Matplotlib,
+          Seaborn, Scikit-learn
         </p>
 
         <a
@@ -237,48 +342,82 @@
         >
           View on GitHub →
         </a>
+
       </article>
 
-      <!-- Project 2 -->
+      <!-- ================================== -->
+      <!-- PROJECT 2: OBESITY PREDICTORS -->
+      <!-- ================================== -->
+
       <article class="project-card">
+
         <img
           src="project2.png"
           alt="Visualization comparing BMI and activity measures by sex"
           loading="lazy"
         />
 
-        <h2>Sex Differences in Obesity Predictors</h2>
+        <h2>
+          Sex Differences in Obesity Predictors
+        </h2>
 
         <p>
-          A health data analysis exploring BMI, calorie expenditure,
-          and activity patterns across sex groups.
+          A health data analysis exploring BMI,
+          calorie expenditure, and activity
+          patterns across sex groups.
         </p>
 
         <h3>Background &amp; Motivation</h3>
+
         <p>
-          This project examines how health and activity measures
-          relate to BMI, and whether those relationships differ
-          across the groups represented in the dataset.
+          This project examines how health and
+          activity measures relate to BMI, and
+          whether those relationships differ
+          across the groups represented in
+          the dataset.
         </p>
 
         <h3>Data &amp; Methods</h3>
+
         <ul>
-          <li>Cleaned and organized health and activity data.</li>
-          <li>Performed exploratory analysis using Pandas and Seaborn.</li>
-          <li>Compared BMI, calorie expenditure, and activity measures by sex.</li>
-          <li>Created visualizations to explore patterns in the data.</li>
+          <li>
+            Cleaned and organized health and activity data.
+          </li>
+          <li>
+            Performed exploratory analysis using
+            Pandas and Seaborn.
+          </li>
+          <li>
+            Compared BMI, calorie expenditure,
+            and activity measures by sex.
+          </li>
+          <li>
+            Created visualizations to explore
+            patterns in the data.
+          </li>
         </ul>
 
         <h3>Questions Explored</h3>
+
         <ul>
-          <li>How do BMI and calorie expenditure vary across sex groups?</li>
-          <li>How strongly are workout calories associated with BMI?</li>
-          <li>Which other measures might help explain differences in BMI?</li>
+          <li>
+            How do BMI and calorie expenditure
+            vary across sex groups?
+          </li>
+          <li>
+            How strongly are workout calories
+            associated with BMI?
+          </li>
+          <li>
+            Which other measures might help
+            explain differences in BMI?
+          </li>
         </ul>
 
         <p class="tools">
           <strong>Tools:</strong>
-          Python, Pandas, Seaborn, Data Visualization,
+          Python, Pandas, Seaborn,
+          Data Visualization,
           Exploratory Data Analysis
         </p>
 
@@ -290,50 +429,81 @@
         >
           View on GitHub →
         </a>
+
       </article>
 
-      <!-- Project 3 -->
+      <!-- ================================== -->
+      <!-- PROJECT 3: FRIENDS TV SHOW -->
+      <!-- ================================== -->
+
       <article class="project-card">
+
         <img
           src="project3.png"
           alt="Visualization of dialogue patterns in the television series Friends"
           loading="lazy"
         />
 
-        <h2>Friends TV Show Dialogue &amp; Sentiment Analysis</h2>
+        <h2>
+          Friends TV Show Dialogue &amp; Sentiment Analysis
+        </h2>
 
         <p>
-          A project exploring character dialogue and emotional
-          patterns in the television series <em>Friends</em>.
+          A project exploring character dialogue
+          and emotional patterns in the television
+          series <em>Friends</em>.
         </p>
 
         <h3>Background &amp; Motivation</h3>
+
         <p>
-          Dialogue data offers a way to explore how characters
-          contribute to a story. This project uses the show's
-          transcripts to examine character representation and
-          sentiment patterns.
+          Dialogue data offers a way to explore
+          how characters contribute to a story.
+          This project uses the show's transcripts
+          to examine character representation
+          and sentiment patterns.
         </p>
 
         <h3>Data &amp; Methods</h3>
+
         <ul>
-          <li>Processed and organized dialogue transcripts.</li>
-          <li>Analyzed dialogue frequency across characters.</li>
-          <li>Explored sentiment patterns across episodes.</li>
-          <li>Created visualizations using Pandas and Seaborn.</li>
+          <li>
+            Processed and organized dialogue transcripts.
+          </li>
+          <li>
+            Analyzed dialogue frequency across characters.
+          </li>
+          <li>
+            Explored sentiment patterns across episodes.
+          </li>
+          <li>
+            Created visualizations using Pandas
+            and Seaborn.
+          </li>
         </ul>
 
         <h3>Questions Explored</h3>
+
         <ul>
-          <li>How is dialogue distributed across the main characters?</li>
-          <li>How do sentiment patterns change across episodes?</li>
-          <li>What can dialogue frequency tell us about character representation?</li>
+          <li>
+            How is dialogue distributed across
+            the main characters?
+          </li>
+          <li>
+            How do sentiment patterns change
+            across episodes?
+          </li>
+          <li>
+            What can dialogue frequency tell us
+            about character representation?
+          </li>
         </ul>
 
         <p class="tools">
           <strong>Tools:</strong>
-          Python, Pandas, Seaborn, Text Analysis,
-          Sentiment Analysis, Data Visualization
+          Python, Pandas, Seaborn,
+          Text Analysis, Sentiment Analysis,
+          Data Visualization
         </p>
 
         <a
@@ -344,10 +514,14 @@
         >
           View on GitHub →
         </a>
+
       </article>
 
     </div>
+
   </main>
+
+  <!-- ===== FOOTER ===== -->
 
   <footer>
     © 2026 Maggie Shao
@@ -355,5 +529,6 @@
 
 </body>
 </html>
+
 
 
