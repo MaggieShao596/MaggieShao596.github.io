@@ -412,3 +412,120 @@ footer {
     padding: 1.25em;
   }
 }
+
+
+/* ===== Resume Page ===== */
+
+.resume-page {
+  --color-accent: #2563eb;
+  background: #f9fafb;
+}
+
+.resume-page main {
+  max-width: 900px;
+  margin-inline: auto;
+  padding: 32px 24px 60px;
+}
+
+/* Resume Header */
+
+.resume-page .header {
+  padding: 32px 20px;
+  text-align: center;
+}
+
+.resume-page .header h1 {
+  font-size: clamp(2rem, 5vw, 2.8rem);
+  line-height: 1.2;
+  text-wrap: balance;
+  margin: 0 0 12px;
+}
+
+.resume-page .header p {
+  margin: 8px 0;
+}
+
+/* Resume Sections */
+
+.resume-page section {
+  max-width: none;
+  padding: 28px 0;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.resume-page section h2 {
+  margin: 0 0 20px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid var(--color-accent);
+  color: #1e293b;
+  font-size: 1.5rem;
+  line-height: 1.2;
+  text-wrap: balance;
+}
+
+/* Experience and Education Entries */
+
+.resume-page article {
+  padding: 18px 22px;
+  margin-bottom: 18px;
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+}
+
+.resume-page article h3 {
+  margin: 0 0 8px;
+  color: #111827;
+  font-size: 1.15rem;
+  line-height: 1.3;
+  text-wrap: balance;
+}
+
+.resume-page article p {
+  margin: 6px 0 12px;
+  color: #64748b;
+}
+
+.resume-page ul {
+  padding-left: 22px;
+  line-height: 1.7;
+}
+
+.resume-page li {
+  margin-bottom: 8px;
+}
+
+/* Links and Navigation */
+
+.resume-page a {
+  color: var(--color-accent);
+}
+
+.resume-page .nav a {
+  color: #333;
+  text-decoration: none;
+  border-bottom: 2px solid transparent;
+}
+
+.resume-page .nav a:hover,
+.resume-page .nav a[aria-current="page"] {
+  color: var(--color-accent);
+  border-bottom-color: var(--color-accent);
+}
+
+/* Responsive Design */
+
+@media (max-width: 600px) {
+  .resume-page main {
+    padding: 20px 16px 40px;
+  }
+
+  .resume-page section {
+    padding: 20px 0;
+  }
+
+  .resume-page article {
+    padding: 16px;
+  }
+}
+
