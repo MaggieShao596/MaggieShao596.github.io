@@ -1,21 +1,26 @@
-/* ========================================
-   Global styles
-   ======================================== */
+
+/* =========================================
+   GLOBAL THEME & COLORS
+========================================= */
 
 :root {
-  /* Lets the browser (and the theme switcher in global.js) pick light or dark */
   color-scheme: light dark;
 
   --color-accent: #3b82f6;
-  --color-accent-dark: #2563eb;
-  --color-text: light-dark(#222, #e5e7eb);
-  --color-muted: light-dark(#555, #9ca3af);
+  --color-accent-dark: light-dark(#2563eb, #93c5fd);
+
+  --color-text: light-dark(#222222, #e5e7eb);
+  --color-muted: light-dark(#555555, #9ca3af);
   --color-border: light-dark(#e5e7eb, #374151);
-  --color-surface: light-dark(#fff, #1f2937);
+  --color-surface: light-dark(#ffffff, #1f2937);
   --color-page: light-dark(#f9fafb, #111827);
 
   accent-color: var(--color-accent);
 }
+
+/* =========================================
+   GLOBAL RESET
+========================================= */
 
 * {
   box-sizing: border-box;
@@ -29,80 +34,86 @@ body {
   max-width: 100ch;
   margin-inline: auto;
   padding-inline: 1em;
-  font: 100%/1.5 system-ui, -apple-system, BlinkMacSystemFont,
-    "Segoe UI", sans-serif;
+
+  font: 100%/1.5 system-ui, -apple-system,
+        BlinkMacSystemFont, "Segoe UI",
+        sans-serif;
+
   color: var(--color-text);
   background: var(--color-page);
+
+  min-height: 100vh;
 }
 
 img {
   max-width: 100%;
+  height: auto;
 }
 
 h1,
 h2,
-h3,
-h4,
-h5,
-h6 {
-  line-height: 1.1;
+h3 {
+  line-height: 1.2;
   text-wrap: balance;
+  color: var(--color-text);
 }
 
-h1 {
-  font-size: clamp(2rem, 5vw, 3rem);
-}
-
-h2 {
-  margin-bottom: 0.75em;
-}
-
-p {
-  line-height: 1.6;
+p,
+li {
+  color: inherit;
 }
 
 a {
-  overflow-wrap: anywhere;
+  color: var(--color-accent-dark);
+}
+
+a:hover {
+  text-decoration-thickness: 2px;
 }
 
 a:focus-visible,
 button:focus-visible,
-input:focus-visible,
-textarea:focus-visible {
+select:focus-visible {
   outline: 2px solid var(--color-accent);
   outline-offset: 3px;
 }
 
-/* ========================================
-   Navigation
-   ======================================== */
+/* =========================================
+   GLOBAL NAVIGATION
+========================================= */
 
 .nav {
-  --border-color: oklch(50% 10% 200 / 40%);
-
   position: sticky;
   top: 0;
   z-index: 1000;
+
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 0.25em 0.5em;
-  margin-bottom: 1.5em;
-  padding: 0.75em 1em 0;
+  align-items: center;
+
+  gap: 10px 20px;
+  padding: 14px 16px;
+
   background: var(--color-surface);
-  border-bottom: 1px solid var(--border-color);
+  border-bottom: 1px solid var(--color-border);
 }
 
 .nav a {
-  flex: 1 1 auto;
-  padding: 0.5em 0.65em 0.4em;
-  border-bottom: 0.3em solid transparent;
-  color: inherit;
+  display: inline-block;
+
+  margin: 0;
+  padding: 8px 10px;
+
+  color: var(--color-text);
   font-weight: 600;
-  text-align: center;
   text-decoration: none;
-  white-space: nowrap;
-  transition: color 0.2s ease, border-color 0.2s ease;
+
+  border-bottom: 2px solid transparent;
+
+  transition:
+    color 0.2s ease,
+    border-color 0.2s ease;
 }
 
 .nav a:hover,
@@ -112,452 +123,511 @@ textarea:focus-visible {
   border-bottom-color: var(--color-accent);
 }
 
-/* ========================================
-   Main page sections and header
-   ======================================== */
+/* =========================================
+   THEME SWITCHER
+========================================= */
+
+label.color-scheme {
+  position: fixed;
+  top: 100px;
+  right: 24px;
+  z-index: 2000;
+
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  padding: 10px 14px;
+
+  background: var(--color-surface);
+  color: var(--color-text);
+
+  border: 1px solid var(--color-border);
+  border-radius: 10px;
+
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 500;
+
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+label.color-scheme select {
+  padding: 5px 8px;
+
+  font: inherit;
+
+  color: var(--color-text);
+  background: var(--color-surface);
+
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+
+  cursor: pointer;
+}
+
+/* =========================================
+   GENERAL LAYOUT
+========================================= */
+
+main {
+  width: 100%;
+}
 
 section {
-  max-width: 900px;
-  margin-inline: auto;
-  padding: 2.5em 1.25em;
+  margin-bottom: 32px;
 }
 
-.header {
-  padding: 2.5em 1.25em 1.25em;
-  text-align: center;
-}
-
-.header p {
-  color: var(--color-muted);
-  font-size: 1.1rem;
-}
-
-.profile-img {
-  width: 180px;
-  max-width: 60vw;
-  margin-top: 1.25em;
-  border-radius: 50%;
-  object-fit: cover;
-}
-
-.social-links {
-  display: flex;
-  justify-content: center;
-  gap: 1.25em;
-  margin-top: 1.25em;
-}
-
-.social-links img {
-  width: 32px;
-  height: 32px;
-  opacity: 0.85;
-  transition: opacity 0.2s ease, transform 0.2s ease;
-}
-
-.social-links img:hover {
-  opacity: 1;
-  transform: translateY(-2px);
-}
-
-.quick-links a {
-  display: inline-block;
-  margin: 0.6em 1em 0 0;
-  color: var(--color-accent-dark);
-  font-weight: 600;
-  text-decoration: none;
-}
-
-.quick-links a:hover {
-  text-decoration: underline;
+article {
+  color: var(--color-text);
 }
 
 footer {
-  padding: 2.5em 1em;
-  color: var(--color-muted);
-  font-size: 0.9rem;
+  padding: 24px 20px 36px;
   text-align: center;
+  color: var(--color-muted);
+  font-size: 14px;
 }
 
-/* ========================================
-   Contact page
-   ======================================== */
+/* =========================================
+   HOME PAGE
+========================================= */
 
-.contact-page main {
-  max-width: 800px;
+.home-page {
+  color: var(--color-text);
+  background: var(--color-page);
+}
+
+.home-page main {
+  max-width: 1000px;
   margin-inline: auto;
 }
 
-.contact-page section {
-  max-width: 720px;
-  padding: 2.5em 1.25em;
+.home-page h1 {
+  color: var(--color-text);
 }
 
-.contact-page h1 {
-  margin: 0 0 0.4em;
-  font-size: clamp(2rem, 5vw, 2.5rem);
+.home-page p {
+  line-height: 1.7;
 }
 
-.contact-page h2 {
-  margin: 0 0 1.25em;
-  font-size: 1.25rem;
+.home-page .intro,
+.home-page .subtitle {
+  color: var(--color-muted);
 }
 
-.contact-page .contact-box {
-  margin-top: 1.5em;
-  padding: 1.75em;
+.home-page .hero,
+.home-page .home-card {
+  color: var(--color-text);
+}
+
+.home-page .home-card {
   background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 14px;
+  padding: 24px;
+}
+
+/* =========================================
+   ABOUT PAGE
+========================================= */
+
+.about-page {
+  color: var(--color-text);
+  background: var(--color-page);
+}
+
+.about-page main {
+  max-width: 950px;
+  margin-inline: auto;
+}
+
+.about-page .about-card,
+.about-page .card {
+  background: var(--color-surface);
+  color: var(--color-text);
+
+  border: 1px solid var(--color-border);
+  border-radius: 16px;
+}
+
+.about-page p {
+  line-height: 1.7;
+}
+
+.about-page .muted,
+.about-page .subtitle {
+  color: var(--color-muted);
+}
+
+/* =========================================
+   RESUME PAGE
+========================================= */
+
+.resume-page {
+  color: var(--color-text);
+  background: var(--color-page);
+}
+
+.resume-page main {
+  max-width: 1100px;
+  margin-inline: auto;
+}
+
+.resume-page header {
+  text-align: center;
+}
+
+.resume-page header h1 {
+  color: var(--color-text);
+}
+
+.resume-page header p {
+  color: var(--color-muted);
+}
+
+.resume-page article,
+.resume-page .resume-card {
+  background: var(--color-surface);
+  color: var(--color-text);
+
   border: 1px solid var(--color-border);
   border-radius: 14px;
 }
 
-.contact-page form {
-  display: grid;
-  gap: 1em;
-}
-
-.contact-page label {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 0.5em;
-  font-size: 0.95rem;
-  font-weight: 600;
-}
-
-.contact-page input,
-.contact-page textarea {
-  display: block;
-  width: 100%;
-  min-width: 0;
-  padding: 0.75em;
-  border: 1px solid var(--color-border);
-  border-radius: 8px;
-  background: var(--color-surface);
+.resume-page section h2 {
   color: var(--color-text);
-  font: inherit;
-  font-weight: 400;
+  border-bottom-color: var(--color-accent);
 }
 
-.contact-page textarea {
-  resize: vertical;
+.resume-page h3 {
+  color: var(--color-text);
 }
 
-.contact-page input:focus,
-.contact-page textarea:focus {
-  outline: 2px solid var(--color-accent-dark);
-  outline-offset: 2px;
-}
-
-.contact-page button {
-  justify-self: start;
-  padding: 0.75em 1.25em;
-  border: 0;
-  border-radius: 8px;
-  background: var(--color-accent-dark);
-  color: #fff;
-  font: inherit;
-  font-weight: 600;
-  cursor: pointer;
-  transition: background 0.2s ease;
-}
-
-.contact-page button:hover {
-  background: #1d4ed8;
-}
-
-.contact-page a {
-  color: var(--color-accent-dark);
-}
-
-.contact-page .form-note {
-  margin: 0;
+.resume-page .date,
+.resume-page .location,
+.resume-page .subtitle,
+.resume-page .meta {
   color: var(--color-muted);
-  font-size: 0.8125rem;
 }
 
-/* ========================================
-   Projects page
-   ======================================== */
+/* =========================================
+   PROJECTS PAGE
+========================================= */
 
 .projects-page {
   max-width: none;
   margin: 0;
   padding: 0;
+
+  color: var(--color-text);
+  background: var(--color-page);
 }
 
 .projects-page main {
   max-width: 1100px;
   margin-inline: auto;
-  padding: 2.75em 1.5em;
-}
-
-.projects-page h1 {
-  margin: 0 0 0.4em;
-  font-size: clamp(2rem, 5vw, 2.5rem);
+  padding: 44px 24px;
 }
 
 .projects-page .intro {
-  max-width: 760px;
-  margin: 0;
   color: var(--color-muted);
-  line-height: 1.7;
 }
 
 .projects-page .projects-grid {
   display: grid;
-  grid-template-columns: repeat(
-    auto-fill,
-    minmax(min(100%, 15em), 1fr)
-  );
-  align-items: stretch;
-  gap: 1.5em;
-  margin-top: 2em;
+  grid-template-columns:
+    repeat(auto-fill, minmax(min(100%, 15em), 1fr));
+
+  gap: 24px;
+  margin-top: 32px;
 }
 
 .projects-page .project-card {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-rows: subgrid;
+  grid-row: span 11;
+
   min-width: 0;
-  padding: 1.5em;
+  padding: 24px;
+
   background: var(--color-surface);
+  color: var(--color-text);
+
   border: 1px solid var(--color-border);
   border-radius: 16px;
-  box-shadow: 0 6px 20px rgb(0 0 0 / 4%);
+
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.04);
+}
+
+.projects-page .project-card h2,
+.projects-page .project-card h3 {
+  color: var(--color-text);
 }
 
 .projects-page .project-card img {
   display: block;
   width: 100%;
-  height: auto;
-  margin-bottom: 1.25em;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
   border-radius: 10px;
 }
 
-.projects-page .project-card h2 {
-  margin: 0 0 0.65em;
-  color: var(--color-text);
-  font-size: 1.375rem;
-  line-height: 1.25;
-}
-
-.projects-page .project-card h3 {
-  margin: 1.5em 0 0.5em;
-  color: var(--color-text);
-  font-size: 1rem;
-}
-
-.projects-page .project-card p {
-  margin: 0 0 0.875em;
-  line-height: 1.7;
-}
-
-.projects-page .project-card ul {
-  margin: 0 0 1em;
-  padding-left: 1.25em;
-}
-
-.projects-page .project-card li {
-  margin-bottom: 0.5em;
-}
-
-.projects-page .project-card .tools {
-  margin-top: auto;
-  padding-top: 1em;
-  border-top: 1px solid var(--color-border);
+.projects-page .tools {
   color: var(--color-muted);
-  font-size: 0.875rem;
+  border-top: 1px solid var(--color-border);
 }
 
 .projects-page .project-link {
-  display: inline-block;
-  align-self: flex-start;
-  margin-top: 0.25em;
   color: var(--color-accent-dark);
   font-weight: 600;
-  text-decoration: none;
 }
 
-.projects-page .project-link:hover {
-  text-decoration: underline;
-}
+/* =========================================
+   SKILLS PAGE
+========================================= */
 
-/* ========================================
-   Responsive adjustments
-   ======================================== */
+.skills-page {
+  max-width: none;
+  margin: 0;
+  padding: 0;
 
-@media (max-width: 600px) {
-  .nav {
-    gap: 0.15em;
-    padding-inline: 0.25em;
-  }
-
-  .nav a {
-    flex: 1 1 28%;
-    padding-inline: 0.25em;
-    font-size: 0.9rem;
-    white-space: normal;
-  }
-
-  section {
-    padding: 2em 0.5em;
-  }
-
-  .contact-page section {
-    padding: 2em 0.5em;
-  }
-
-  .contact-page .contact-box {
-    padding: 1.25em;
-  }
-
-  .projects-page main {
-    padding: 2em 1em;
-  }
-
-  .projects-page .project-card {
-    padding: 1.25em;
-  }
-}
-
-
-/* ===== Resume Page ===== */
-
-.resume-page {
-  --color-accent: #2563eb;
+  color: var(--color-text);
   background: var(--color-page);
 }
 
-.resume-page main {
+.skills-page main {
   max-width: 900px;
   margin-inline: auto;
-  padding: 32px 24px 60px;
+  padding: 44px 20px;
 }
 
-/* Resume Header */
-
-.resume-page .header {
-  padding: 32px 20px;
-  text-align: center;
-}
-
-.resume-page .header h1 {
-  font-size: clamp(2rem, 5vw, 2.8rem);
-  line-height: 1.2;
-  text-wrap: balance;
-  margin: 0 0 12px;
-}
-
-.resume-page .header p {
-  margin: 8px 0;
-}
-
-/* Resume Sections */
-
-.resume-page section {
-  max-width: none;
-  padding: 28px 0;
-  border-bottom: 1px solid var(--color-border);
-}
-
-.resume-page section h2 {
-  margin: 0 0 20px;
-  padding-bottom: 10px;
-  border-bottom: 2px solid var(--color-accent);
-  color: var(--color-text);
-  font-size: 1.5rem;
-  line-height: 1.2;
-  text-wrap: balance;
-}
-
-/* Experience and Education Entries */
-
-.resume-page article {
-  padding: 18px 22px;
-  margin-bottom: 18px;
-  background: var(--color-surface);
-  border: 1px solid var(--color-border);
-  border-radius: 12px;
-}
-
-.resume-page article h3 {
-  margin: 0 0 8px;
-  color: var(--color-text);
-  font-size: 1.15rem;
-  line-height: 1.3;
-  text-wrap: balance;
-}
-
-.resume-page article p {
-  margin: 6px 0 12px;
+.skills-page .intro {
   color: var(--color-muted);
 }
 
-.resume-page ul {
-  padding-left: 22px;
-  line-height: 1.7;
+.skills-page .skills-grid {
+  display: grid;
+  grid-template-columns:
+    repeat(auto-fit, minmax(min(100%, 300px), 1fr));
+
+  gap: 20px;
+  margin-top: 28px;
 }
 
-.resume-page li {
-  margin-bottom: 8px;
+.skills-page .skills-category {
+  min-width: 0;
+  padding: 24px;
+
+  background: var(--color-surface);
+  color: var(--color-text);
+
+  border: 1px solid var(--color-border);
+  border-radius: 14px;
+
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.04);
 }
 
-/* Links and Navigation */
-
-.resume-page a {
-  color: var(--color-accent);
+.skills-page h2 {
+  color: var(--color-text);
 }
 
-.resume-page .nav a {
-  color: inherit;
-  text-decoration: none;
-  border-bottom: 2px solid transparent;
+/* =========================================
+   CONTACT PAGE
+========================================= */
+
+.contact-page {
+  color: var(--color-text);
+  background: var(--color-page);
 }
 
-.resume-page .nav a:hover,
-.resume-page .nav a[aria-current="page"] {
-  color: var(--color-accent);
-  border-bottom-color: var(--color-accent);
+.contact-page main {
+  max-width: 900px;
+  margin-inline: auto;
+  padding: 44px 24px;
 }
 
-/* Responsive Design */
-
-@media (max-width: 600px) {
-  .resume-page main {
-    padding: 20px 16px 40px;
-  }
-
-  .resume-page section {
-    padding: 20px 0;
-  }
-
-  .resume-page article {
-    padding: 16px;
-  }
+.contact-page section > p {
+  color: var(--color-muted);
 }
 
+.contact-page .contact-box {
+  padding: 28px;
+  margin-bottom: 24px;
 
-/* ========================================
-   Dark mode switcher (added in Lab 3)
-   Keep this block at the END of the file so it
-   overrides the page-specific `label` rules above.
-   ======================================== */
+  background: var(--color-surface);
+  color: var(--color-text);
 
-label.color-scheme {
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
-  z-index: 1001; /* above the sticky nav (z-index: 1000) */
-  display: block;
-  font-family: inherit;
-  font-size: 80%;
-  font-weight: 400;
+  border: 1px solid var(--color-border);
+  border-radius: 16px;
+
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.04);
 }
 
-select {
+.contact-page form {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 18px;
+}
+
+.contact-page form label {
+  display: grid;
+  grid-template-columns: subgrid;
+  grid-column: 1 / -1;
+  gap: 8px;
+
+  color: var(--color-text);
+  font-weight: 600;
+}
+
+.contact-page input,
+.contact-page textarea {
+  box-sizing: border-box;
+  width: 100%;
+  min-width: 0;
+
+  padding: 12px 14px;
+
   font: inherit;
+  color: var(--color-text);
+  background: var(--color-surface);
+
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
 }
 
-/* The LinkedIn / GitHub icons are black SVGs, so flip them in dark mode.
-   global.js adds the .is-dark class to <html>. */
+.contact-page textarea {
+  min-height: 140px;
+  resize: vertical;
+}
+
+.contact-page input:focus,
+.contact-page textarea:focus {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+.contact-page button {
+  justify-self: start;
+  padding: 12px 22px;
+
+  font: inherit;
+  font-weight: 600;
+
+  color: #ffffff;
+  background: #2563eb;
+
+  border: none;
+  border-radius: 8px;
+
+  cursor: pointer;
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease;
+}
+
+.contact-page button:hover {
+  background: #1d4ed8;
+  transform: translateY(-2px);
+}
+
+.contact-page .form-note {
+  color: var(--color-muted);
+  font-size: 0.9rem;
+}
+
+.contact-page .contact-box a {
+  color: var(--color-accent-dark);
+  overflow-wrap: anywhere;
+}
+
+/* =========================================
+   SOCIAL ICONS
+========================================= */
+
+.social-links {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.social-links img {
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+}
+
+/* =========================================
+   DARK MODE ADJUSTMENTS
+========================================= */
+
 .is-dark .social-links img {
   filter: invert(1);
+}
+
+.is-dark .project-card,
+.is-dark .skills-category,
+.is-dark .contact-box,
+.is-dark .about-card,
+.is-dark .resume-card {
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* =========================================
+   RESPONSIVE DESIGN
+========================================= */
+
+@media (max-width: 768px) {
+  .nav {
+    gap: 6px 12px;
+    padding: 12px;
+  }
+
+  .nav a {
+    padding: 6px 8px;
+    font-size: 14px;
+  }
+
+  .projects-page main,
+  .skills-page main,
+  .contact-page main {
+    padding: 32px 18px;
+  }
+}
+
+@media (max-width: 600px) {
+  label.color-scheme {
+    top: auto;
+    bottom: 16px;
+    right: 16px;
+  }
+
+  .projects-page main,
+  .skills-page main,
+  .contact-page main {
+    padding: 28px 16px;
+  }
+
+  .projects-page .project-card,
+  .skills-page .skills-category,
+  .contact-page .contact-box {
+    padding: 20px;
+  }
+
+  .contact-page button {
+    width: 100%;
+    justify-self: stretch;
+  }
+
+  h1 {
+    font-size: clamp(28px, 6vw, 40px);
+  }
+}
+
+@media (max-width: 400px) {
+  .projects-page .projects-grid,
+  .skills-page .skills-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
 }
