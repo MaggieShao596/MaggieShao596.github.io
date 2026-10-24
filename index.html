@@ -4,34 +4,30 @@
 
 <head>
   <meta charset="UTF-8" />
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
-  />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <title>Maggie Shao | Personal Portfolio</title>
 
-  <!-- Global stylesheet -->
   <link rel="stylesheet" href="style.css?v=4" />
 
-  <!-- Home page specific styles -->
   <style>
-    /* HOME PAGE */
+    /* ===== HOME PAGE ===== */
 
     body.home-page {
       color: var(--color-text, #222);
       background: var(--color-page, #f9fafb);
     }
 
-    /* Main content */
     body.home-page main {
       width: 100%;
       max-width: 1000px;
       margin: 0 auto;
       padding: 65px 24px 40px;
+      box-sizing: border-box;
     }
 
-    /* Header */
+    /* ===== HEADER ===== */
+
     body.home-page main .header {
       display: flex;
       flex-direction: column;
@@ -42,26 +38,21 @@
       margin: 0;
     }
 
-    /* Name */
     body.home-page main .header h1 {
       font-size: 48px;
       font-weight: 700;
       line-height: 1.2;
       margin: 0 0 28px;
-      text-align: center;
       color: var(--color-text, #222);
     }
 
-    /* Subtitle */
     body.home-page main .header .subtitle {
       font-size: 18px;
       line-height: 1.6;
       color: var(--color-muted, #555);
       margin: 0 0 36px;
-      text-align: center;
     }
 
-    /* Profile image */
     body.home-page main .header img.profile-img {
       display: block;
       width: 180px;
@@ -76,7 +67,8 @@
       margin: 0 auto;
     }
 
-    /* Social links */
+    /* ===== SOCIAL LINKS ===== */
+
     body.home-page main .social-links {
       display: flex;
       justify-content: center;
@@ -110,12 +102,12 @@
       transform: translateY(-3px);
     }
 
-    /* Dark mode icons */
     .is-dark body.home-page main .social-links img {
       filter: invert(1);
     }
 
-    /* About Me */
+    /* ===== ABOUT ME ===== */
+
     body.home-page main .home-about {
       max-width: 900px;
       margin: 0 auto 40px;
@@ -137,7 +129,6 @@
       color: var(--color-text, #222);
     }
 
-    /* Quick links */
     body.home-page main .quick-links {
       display: flex;
       flex-wrap: wrap;
@@ -157,14 +148,122 @@
       text-decoration: underline;
     }
 
-    /* Footer */
+    /* ===== LAB 4: LATEST PROJECTS ===== */
+
+    body.home-page main .latest-projects-section,
+    body.home-page main .github-stats-section {
+      max-width: 900px;
+      margin: 50px auto;
+    }
+
+    body.home-page main .latest-projects-section h2,
+    body.home-page main .github-stats-section h2 {
+      font-size: 26px;
+      margin: 0 0 22px;
+      color: var(--color-text, #222);
+    }
+
+    body.home-page main .projects {
+      display: grid;
+      grid-template-columns:
+        repeat(auto-fit, minmax(min(100%, 240px), 1fr));
+      gap: 20px;
+      margin-top: 24px;
+    }
+
+    body.home-page main .projects .project-card {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      min-width: 0;
+      padding: 20px;
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: 14px;
+    }
+
+    body.home-page main .projects .project-card img {
+      display: block;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+
+    body.home-page main .projects .project-card h3 {
+      font-size: 18px;
+      line-height: 1.4;
+      margin: 0;
+      color: var(--color-text);
+    }
+
+    body.home-page main .projects .project-card p {
+      margin: 0;
+      line-height: 1.6;
+      color: var(--color-text);
+    }
+
+    body.home-page main .projects .project-link {
+      margin-top: auto;
+      color: var(--color-accent-dark, #2563eb);
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    body.home-page main .projects .project-link:hover {
+      text-decoration: underline;
+    }
+
+    body.home-page main .view-all-projects {
+      display: inline-block;
+      margin-top: 24px;
+      color: var(--color-accent-dark, #2563eb);
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    body.home-page main .view-all-projects:hover {
+      text-decoration: underline;
+    }
+
+    /* ===== LAB 4: GITHUB STATS ===== */
+
+    body.home-page main #profile-stats dl {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 10px;
+      text-align: center;
+      padding: 22px;
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: 14px;
+    }
+
+    body.home-page main #profile-stats dt {
+      grid-row: 1;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--color-muted, #555);
+    }
+
+    body.home-page main #profile-stats dd {
+      grid-row: 2;
+      margin: 0;
+      font-size: 26px;
+      font-weight: 700;
+      color: var(--color-text);
+    }
+
+    /* ===== FOOTER ===== */
+
     body.home-page footer {
       text-align: center;
       color: var(--color-muted, #555);
       padding: 24px 20px 36px;
     }
 
-    /* Mobile */
+    /* ===== MOBILE ===== */
+
     @media (max-width: 600px) {
 
       body.home-page main {
@@ -201,9 +300,17 @@
       body.home-page main .quick-links {
         gap: 16px;
       }
+
+      body.home-page main #profile-stats dl {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      body.home-page main #profile-stats dt,
+      body.home-page main #profile-stats dd {
+        grid-row: auto;
+      }
     }
   </style>
-
 </head>
 
 <body class="home-page">
@@ -212,7 +319,8 @@
 
   <main>
 
-    <!-- HEADER -->
+    <!-- ===== HEADER ===== -->
+
     <header class="header">
 
       <h1>Maggie Shao</h1>
@@ -227,21 +335,12 @@
         class="profile-img"
         width="180"
         height="180"
-        style="
-          display: block;
-          width: 180px;
-          height: 180px;
-          max-width: 180px;
-          max-height: 180px;
-          object-fit: cover;
-          border-radius: 50%;
-          margin: 0 auto;
-        "
       />
 
     </header>
 
-    <!-- SOCIAL LINKS -->
+    <!-- ===== SOCIAL LINKS ===== -->
+
     <div class="social-links">
 
       <a
@@ -270,7 +369,8 @@
 
     </div>
 
-    <!-- ABOUT ME -->
+    <!-- ===== ABOUT ME ===== -->
+
     <section class="home-about">
 
       <h2>About Me</h2>
@@ -311,16 +411,49 @@
 
     </section>
 
+    <!-- ===== LAB 4: LATEST PROJECTS ===== -->
+
+    <section class="latest-projects-section">
+
+      <h2>Latest Projects</h2>
+
+      <div class="projects">
+        <!-- First 3 projects generated by index.js -->
+      </div>
+
+      <a class="view-all-projects" href="projects.html">
+        View All Projects →
+      </a>
+
+    </section>
+
+    <!-- ===== LAB 4: GITHUB STATS ===== -->
+
+    <section class="github-stats-section">
+
+      <h2>My GitHub Stats</h2>
+
+      <div id="profile-stats">
+        Loading GitHub stats...
+      </div>
+
+    </section>
+
   </main>
 
-  <!-- FOOTER -->
+  <!-- ===== FOOTER ===== -->
+
   <footer>
     © 2026 Maggie Shao
   </footer>
 
-  <!-- GLOBAL JAVASCRIPT -->
+  <!-- LAB 3: GLOBAL JAVASCRIPT -->
   <script type="module" src="global.js"></script>
+
+  <!-- LAB 4: HOME PAGE JAVASCRIPT -->
+  <script type="module" src="index.js"></script>
 
 </body>
 </html>
+
 
