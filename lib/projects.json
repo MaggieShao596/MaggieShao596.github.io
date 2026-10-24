@@ -1,0 +1,170 @@
+[
+  {
+    "title": "Ocean Pulse — 3rd Place, ML/AI Track\n    @ DataHacks 2026",
+    "year": 2026,
+    "image": "ocean-pulse.jpg",
+    "description": "An award-winning machine learning project\n    developed by a team of four to classify\n    California Current marine ecosystem health.",
+    "background": "Using historical CalCOFI oceanographic data\n    from 1949–2021, we explored how environmental\n    conditions influence marine ecosystem health.",
+    "methods": [
+      "Trained a Random Forest classifier using\n      286,819 oceanographic samples.",
+      "Classified ecosystem health into three\n      states: Healthy, Stressed, and Critical.",
+      "Analyzed feature importance to identify\n      key environmental predictors."
+    ],
+    "takeaways": [
+      "Achieved 98% classification accuracy.",
+      "Identified phosphate and nitrate as\n      the top two predictors of ecosystem health.",
+      "Built an interactive Streamlit dashboard\n      featuring predictions, trends, and\n      environmental data visualizations.",
+      "Won 3rd Place in the ML/AI Track\n      at UCSD DataHacks 2026."
+    ],
+    "tools": "Python, scikit-learn, Random Forest,\n    Streamlit, Data Visualization",
+    "url": "https://github.com/laura06919-max/datahacks-2026"
+  },
+  {
+    "title": "California Real Estate Market Analysis",
+    "year": 2025,
+    "image": "project1.png",
+    "description": "An analysis of California residential real estate\n          data, exploring property features, pricing\n          patterns, and house price prediction.",
+    "background": "Housing prices vary widely across California.\n          This project explores how location and property\n          characteristics relate to those differences.",
+    "methods": [
+      "Cleaned and prepared 178,925 property records.",
+      "Explored price distributions and relationships\n            between features.",
+      "Used one-hot encoding and feature scaling\n            to prepare model inputs.",
+      "Trained and evaluated a linear regression\n            model using an 80/20 split."
+    ],
+    "takeaways": [
+      "The linear regression model achieved\n            an R² of 0.77.",
+      "Residual analysis showed greater error\n            variation for higher-priced homes.",
+      "The project helped me practice data\n            preparation, model evaluation, and\n            communicating results."
+    ],
+    "tools": "Python, Pandas, NumPy, Matplotlib,\n          Seaborn, Scikit-learn",
+    "url": "https://github.com/MaggieShao596/California-Real-Estate-Market-Analysis"
+  },
+  {
+    "title": "Sex Differences in Obesity Predictors",
+    "year": 2025,
+    "image": "project2.png",
+    "description": "A health data analysis exploring BMI,\n          calorie expenditure, and activity\n          patterns across sex groups.",
+    "background": "This project examines how health and\n          activity measures relate to BMI, and\n          whether those relationships differ\n          across the groups represented in\n          the dataset.",
+    "methods": [
+      "Cleaned and organized health and activity data.",
+      "Performed exploratory analysis using\n            Pandas and Seaborn.",
+      "Compared BMI, calorie expenditure,\n            and activity measures by sex.",
+      "Created visualizations to explore\n            patterns in the data."
+    ],
+    "takeaways": [
+      "How do BMI and calorie expenditure\n            vary across sex groups?",
+      "How strongly are workout calories\n            associated with BMI?",
+      "Which other measures might help\n            explain differences in BMI?"
+    ],
+    "tools": "Python, Pandas, Seaborn,\n          Data Visualization,\n          Exploratory Data Analysis",
+    "url": "https://github.com/MaggieShao596/Sex-Differences-Obesity-Predictors"
+  },
+  {
+    "title": "Friends TV Show Dialogue & Sentiment Analysis",
+    "year": 2025,
+    "image": "project3.png",
+    "description": "A project exploring character dialogue\n          and emotional patterns in the television\n          series Friends .",
+    "background": "Dialogue data offers a way to explore\n          how characters contribute to a story.\n          This project uses the show's transcripts\n          to examine character representation\n          and sentiment patterns.",
+    "methods": [
+      "Processed and organized dialogue transcripts.",
+      "Analyzed dialogue frequency across characters.",
+      "Explored sentiment patterns across episodes.",
+      "Created visualizations using Pandas\n            and Seaborn."
+    ],
+    "takeaways": [
+      "How is dialogue distributed across\n            the main characters?",
+      "How do sentiment patterns change\n            across episodes?",
+      "What can dialogue frequency tell us\n            about character representation?"
+    ],
+    "tools": "Python, Pandas, Seaborn,\n          Text Analysis, Sentiment Analysis,\n          Data Visualization",
+    "url": "https://github.com/MaggieShao596/Friends-TV-Show-Data-Visualization"
+  },
+  {
+    "title": "Placeholder Project 5 — Replace Before Publishing",
+    "year": 2024,
+    "image": "https://dsc106.com/labs/lab02/images/empty.svg",
+    "description": "Placeholder for a future course assignment or personal project.",
+    "background": "",
+    "methods": [],
+    "takeaways": [],
+    "tools": "",
+    "url": ""
+  },
+  {
+    "title": "Placeholder Project 6 — Replace Before Publishing",
+    "year": 2023,
+    "image": "https://dsc106.com/labs/lab02/images/empty.svg",
+    "description": "Placeholder for a future course assignment or personal project.",
+    "background": "",
+    "methods": [],
+    "takeaways": [],
+    "tools": "",
+    "url": ""
+  },
+  {
+    "title": "Placeholder Project 7 — Replace Before Publishing",
+    "year": 2024,
+    "image": "https://dsc106.com/labs/lab02/images/empty.svg",
+    "description": "Placeholder for a future course assignment or personal project.",
+    "background": "",
+    "methods": [],
+    "takeaways": [],
+    "tools": "",
+    "url": ""
+  },
+  {
+    "title": "Placeholder Project 8 — Replace Before Publishing",
+    "year": 2023,
+    "image": "https://dsc106.com/labs/lab02/images/empty.svg",
+    "description": "Placeholder for a future course assignment or personal project.",
+    "background": "",
+    "methods": [],
+    "takeaways": [],
+    "tools": "",
+    "url": ""
+  },
+  {
+    "title": "Placeholder Project 9 — Replace Before Publishing",
+    "year": 2024,
+    "image": "https://dsc106.com/labs/lab02/images/empty.svg",
+    "description": "Placeholder for a future course assignment or personal project.",
+    "background": "",
+    "methods": [],
+    "takeaways": [],
+    "tools": "",
+    "url": ""
+  },
+  {
+    "title": "Placeholder Project 10 — Replace Before Publishing",
+    "year": 2023,
+    "image": "https://dsc106.com/labs/lab02/images/empty.svg",
+    "description": "Placeholder for a future course assignment or personal project.",
+    "background": "",
+    "methods": [],
+    "takeaways": [],
+    "tools": "",
+    "url": ""
+  },
+  {
+    "title": "Placeholder Project 11 — Replace Before Publishing",
+    "year": 2024,
+    "image": "https://dsc106.com/labs/lab02/images/empty.svg",
+    "description": "Placeholder for a future course assignment or personal project.",
+    "background": "",
+    "methods": [],
+    "takeaways": [],
+    "tools": "",
+    "url": ""
+  },
+  {
+    "title": "Placeholder Project 12 — Replace Before Publishing",
+    "year": 2023,
+    "image": "https://dsc106.com/labs/lab02/images/empty.svg",
+    "description": "Placeholder for a future course assignment or personal project.",
+    "background": "",
+    "methods": [],
+    "takeaways": [],
+    "tools": "",
+    "url": ""
+  }
+]
