@@ -94,3 +94,74 @@ select.addEventListener("input", function (event) {
   setColorScheme(event.target.value);
   localStorage.colorScheme = event.target.value;
 });
+
+// Lab 4: Fetch JSON data
+export async function fetchJSON(url) {
+  try {
+    const response = await fetch(url);
+
+    if (!response.ok) {
+      throw new Error(`Failed to fetch data: ${response.status}`);
+    }
+
+    return await response.json();
+  } catch (error) {
+    console.error("Error fetching JSON:", error);
+    return null;
+  }
+}
+
+// Lab 4: Dynamically render projects
+export function renderProjects(projects, containerElement, headingLevel = "h2") {
+  if (!containerElement) return;
+
+  containerElement.innerHTML = "";
+
+  if (!Array.isArray(projects) || projects.length === 0) {
+    containerElement.textContent = "No projects available.";
+    return;
+  }
+
+  const heading = /^h[1-6]$/.test(headingLevel) ? headingLevel : "h2";
+
+  for (const project of projects) {
+    const article = document.createElement("article");
+    article.className = "project-card";
+
+    const title = document.createElement(heading);
+    title.textContent = project.title || "Untitled Project";
+    article.appendChild(title);
+
+    if (project.image) {
+      const img = document.createElement("img");
+      img.src = project.image;
+      img.alt = project.title || "Project image";
+      img.loading = "lazy";
+      article.appendChild(img);
+    }
+
+    if (project.description) {
+      const description = document.createElement("p");
+      description.textContent = project.description;
+      article.appendChild(description);
+    }
+
+    if (project.year) {
+      const year = document.createElement("p");
+      year.textContent = `Year: ${project.year}`;
+      article.appendChild(year);
+    }
+
+    if (project.link) {
+      const link = document.createElement("a");
+      link.href = project.link;
+      link.textContent = "View on GitHub →";
+      link.className = "project-link";
+      link.target = "_blank";
+      link.rel = "noopener noreferrer";
+      article.appendChild(link);
+    }
+
+    containerElement.appendChild(article);
+  }
+}
