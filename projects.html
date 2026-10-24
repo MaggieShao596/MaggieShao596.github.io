@@ -66,12 +66,12 @@
       align-items: stretch;
     }
 
-    /* ===== PROJECT CARDS WITH SUBGRID ===== */
+    /* ===== PROJECT CARDS ===== */
 
     .projects-page .project-card {
-      display: grid;
-      grid-template-rows: subgrid;
-      grid-row: span 11;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
 
       min-width: 0;
       padding: 24px;
@@ -136,6 +136,7 @@
 
     .projects-page .project-link {
       display: inline-block;
+      margin-top: auto;
       color: var(--color-accent-dark);
       font-weight: 600;
       text-decoration: none;
@@ -183,360 +184,19 @@
 
   <main>
 
-    <h1>Projects</h1>
+    <h1 class="projects-title">Projects</h1>
 
     <p class="intro">
-      Here are some projects I’ve worked on while
-      studying data science. They explore housing
-      prices, health data, and television dialogue
+      Here are some projects I've worked on while
+      studying data science. They explore machine learning,
+      housing prices, health data, and television dialogue
       through data cleaning, visualization, and modeling.
     </p>
 
-    <div class="projects-grid">
-      
+    <!-- LAB 4: PROJECTS GENERATED DYNAMICALLY -->
 
-<!-- ===== OCEAN PULSE ===== -->
-
-<article class="project-card">
-
-  <img
-    src="ocean-pulse.png"
-    alt="Ocean Pulse interactive marine ecosystem health dashboard"
-    loading="lazy"
-  />
-
-  <h2>
-    Ocean Pulse — 3rd Place, ML/AI Track
-    @ DataHacks 2026
-  </h2>
-
-  <p>
-    An award-winning machine learning project
-    developed by a team of four to classify
-    California Current marine ecosystem health.
-  </p>
-
-  <h3>Background &amp; Motivation</h3>
-
-  <p>
-    Using historical CalCOFI oceanographic data
-    from 1949–2021, we explored how environmental
-    conditions influence marine ecosystem health.
-  </p>
-
-  <h3>Data &amp; Methods</h3>
-
-  <ul>
-    <li>
-      Trained a Random Forest classifier using
-      286,819 oceanographic samples.
-    </li>
-    <li>
-      Classified ecosystem health into three
-      states: Healthy, Stressed, and Critical.
-    </li>
-    <li>
-      Analyzed feature importance to identify
-      key environmental predictors.
-    </li>
-  </ul>
-
-  <h3>Results &amp; Takeaways</h3>
-
-  <ul>
-    <li>
-      Achieved 98% classification accuracy.
-    </li>
-    <li>
-      Identified phosphate and nitrate as
-      the top two predictors of ecosystem health.
-    </li>
-    <li>
-      Built an interactive Streamlit dashboard
-      featuring predictions, trends, and
-      environmental data visualizations.
-    </li>
-    <li>
-      Won 3rd Place in the ML/AI Track
-      at UCSD DataHacks 2026.
-    </li>
-  </ul>
-
-  <p class="tools">
-    <strong>Tools:</strong>
-    Python, scikit-learn, Random Forest,
-    Streamlit, Data Visualization
-  </p>
-
-  <a
-    class="project-link"
-    href="https://github.com/laura06919-max/datahacks-2026"
-    target="_blank"
-    rel="noopener noreferrer"
-  >
-    View on GitHub →
-  </a>
-
-</article>
-
-
-      <!-- ================================== -->
-      <!-- PROJECT 1: CALIFORNIA REAL ESTATE -->
-      <!-- ================================== -->
-
-      <article class="project-card">
-
-        <img
-          src="project1.png"
-          alt="Visualization from the California real estate market analysis"
-          loading="lazy"
-        />
-
-        <h2>
-          California Real Estate Market Analysis
-        </h2>
-
-        <p>
-          An analysis of California residential real estate
-          data, exploring property features, pricing
-          patterns, and house price prediction.
-        </p>
-
-        <h3>Background &amp; Motivation</h3>
-
-        <p>
-          Housing prices vary widely across California.
-          This project explores how location and property
-          characteristics relate to those differences.
-        </p>
-
-        <h3>Data &amp; Methods</h3>
-
-        <ul>
-          <li>
-            Cleaned and prepared 178,925 property records.
-          </li>
-          <li>
-            Explored price distributions and relationships
-            between features.
-          </li>
-          <li>
-            Used one-hot encoding and feature scaling
-            to prepare model inputs.
-          </li>
-          <li>
-            Trained and evaluated a linear regression
-            model using an 80/20 split.
-          </li>
-        </ul>
-
-        <h3>Results &amp; Takeaways</h3>
-
-        <ul>
-          <li>
-            The linear regression model achieved
-            an R² of 0.77.
-          </li>
-          <li>
-            Residual analysis showed greater error
-            variation for higher-priced homes.
-          </li>
-          <li>
-            The project helped me practice data
-            preparation, model evaluation, and
-            communicating results.
-          </li>
-        </ul>
-
-        <p class="tools">
-          <strong>Tools:</strong>
-          Python, Pandas, NumPy, Matplotlib,
-          Seaborn, Scikit-learn
-        </p>
-
-        <a
-          class="project-link"
-          href="https://github.com/MaggieShao596/California-Real-Estate-Market-Analysis"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          View on GitHub →
-        </a>
-
-      </article>
-
-      <!-- ================================== -->
-      <!-- PROJECT 2: OBESITY PREDICTORS -->
-      <!-- ================================== -->
-
-      <article class="project-card">
-
-        <img
-          src="project2.png"
-          alt="Visualization comparing BMI and activity measures by sex"
-          loading="lazy"
-        />
-
-        <h2>
-          Sex Differences in Obesity Predictors
-        </h2>
-
-        <p>
-          A health data analysis exploring BMI,
-          calorie expenditure, and activity
-          patterns across sex groups.
-        </p>
-
-        <h3>Background &amp; Motivation</h3>
-
-        <p>
-          This project examines how health and
-          activity measures relate to BMI, and
-          whether those relationships differ
-          across the groups represented in
-          the dataset.
-        </p>
-
-        <h3>Data &amp; Methods</h3>
-
-        <ul>
-          <li>
-            Cleaned and organized health and activity data.
-          </li>
-          <li>
-            Performed exploratory analysis using
-            Pandas and Seaborn.
-          </li>
-          <li>
-            Compared BMI, calorie expenditure,
-            and activity measures by sex.
-          </li>
-          <li>
-            Created visualizations to explore
-            patterns in the data.
-          </li>
-        </ul>
-
-        <h3>Questions Explored</h3>
-
-        <ul>
-          <li>
-            How do BMI and calorie expenditure
-            vary across sex groups?
-          </li>
-          <li>
-            How strongly are workout calories
-            associated with BMI?
-          </li>
-          <li>
-            Which other measures might help
-            explain differences in BMI?
-          </li>
-        </ul>
-
-        <p class="tools">
-          <strong>Tools:</strong>
-          Python, Pandas, Seaborn,
-          Data Visualization,
-          Exploratory Data Analysis
-        </p>
-
-        <a
-          class="project-link"
-          href="https://github.com/MaggieShao596/Sex-Differences-Obesity-Predictors"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          View on GitHub →
-        </a>
-
-      </article>
-
-      <!-- ================================== -->
-      <!-- PROJECT 3: FRIENDS TV SHOW -->
-      <!-- ================================== -->
-
-      <article class="project-card">
-
-        <img
-          src="project3.png"
-          alt="Visualization of dialogue patterns in the television series Friends"
-          loading="lazy"
-        />
-
-        <h2>
-          Friends TV Show Dialogue &amp; Sentiment Analysis
-        </h2>
-
-        <p>
-          A project exploring character dialogue
-          and emotional patterns in the television
-          series <em>Friends</em>.
-        </p>
-
-        <h3>Background &amp; Motivation</h3>
-
-        <p>
-          Dialogue data offers a way to explore
-          how characters contribute to a story.
-          This project uses the show's transcripts
-          to examine character representation
-          and sentiment patterns.
-        </p>
-
-        <h3>Data &amp; Methods</h3>
-
-        <ul>
-          <li>
-            Processed and organized dialogue transcripts.
-          </li>
-          <li>
-            Analyzed dialogue frequency across characters.
-          </li>
-          <li>
-            Explored sentiment patterns across episodes.
-          </li>
-          <li>
-            Created visualizations using Pandas
-            and Seaborn.
-          </li>
-        </ul>
-
-        <h3>Questions Explored</h3>
-
-        <ul>
-          <li>
-            How is dialogue distributed across
-            the main characters?
-          </li>
-          <li>
-            How do sentiment patterns change
-            across episodes?
-          </li>
-          <li>
-            What can dialogue frequency tell us
-            about character representation?
-          </li>
-        </ul>
-
-        <p class="tools">
-          <strong>Tools:</strong>
-          Python, Pandas, Seaborn,
-          Text Analysis, Sentiment Analysis,
-          Data Visualization
-        </p>
-
-        <a
-          class="project-link"
-          href="https://github.com/MaggieShao596/Friends-TV-Show-Data-Visualization"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          View on GitHub →
-        </a>
-
-      </article>
-
+    <div class="projects projects-grid">
+      <!-- JavaScript will insert project cards here -->
     </div>
 
   </main>
@@ -547,11 +207,13 @@
     © 2026 Maggie Shao
   </footer>
 
-  <!-- ===== LAB 3: GLOBAL JAVASCRIPT ===== -->
+  <!-- LAB 3: NAVIGATION AND THEME SWITCHER -->
   <script type="module" src="global.js"></script>
+
+  <!-- LAB 4: DYNAMIC PROJECTS -->
+  <script type="module" src="projects.js"></script>
 
 </body>
 </html>
-
 
 
