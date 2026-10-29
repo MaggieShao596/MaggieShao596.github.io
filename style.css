@@ -720,3 +720,19 @@ footer {
     max-width: 150px;
   }
 }
+
+
+/* Lab 5: Project year */
+
+.project-details {
+  display: block;
+}
+
+.project-year {
+  color: gray;
+  font-family: Baskerville, serif;
+  font-variant-numeric: oldstyle-nums;
+  font-size: 0.9em;
+  margin-top: 0.3em;
+}
+
