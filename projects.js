@@ -3,11 +3,18 @@ import { fetchJSON, renderProjects } from "./global.js";
 import * as d3 from "https://cdn.jsdelivr.net/npm/d3@7.9.0/+esm";
 
 /* ========================================
-   LAB 5: LOAD PROJECT DATA
+   LAB 5: LOAD REAL PROJECTS ONLY
    ======================================== */
 
 const loadedProjects = await fetchJSON("./lib/projects.json");
-const projects = Array.isArray(loadedProjects) ? loadedProjects : [];
+
+// Remove placeholder projects
+const projects = Array.isArray(loadedProjects)
+  ? loadedProjects.filter((project) => {
+      const title = String(project.title ?? "").toLowerCase();
+      return !title.includes("placeholder");
+    })
+  : [];
 
 const projectsContainer = document.querySelector(".projects");
 const projectsTitle = document.querySelector(".projects-title");
@@ -20,7 +27,7 @@ const searchInput = document.querySelector(".searchBar");
 let query = "";
 let selectedYear = null;
 
-// Consistent colors for each year
+// Use consistent colors for each year
 const colors = d3.scaleOrdinal(d3.schemeTableau10);
 
 /* ========================================
@@ -36,8 +43,8 @@ function matchesSearch(project) {
 }
 
 /* ========================================
-   COMBINED FILTER
-   Search + Year (Extra Credit)
+   COMBINED SEARCH + YEAR FILTER
+   EXTRA CREDIT
    ======================================== */
 
 function getFilteredProjects() {
@@ -53,14 +60,14 @@ function getFilteredProjects() {
 }
 
 /* ========================================
-   LAB 5: DRAW PIE CHART
+   LAB 5: RENDER PIE CHART
    ======================================== */
 
 function renderPieChart(projectsGiven) {
   const svg = d3.select("#projects-pie-plot");
   const legend = d3.select(".legend");
 
-  // Clear previous chart and legend
+  // Clear old chart and legend
   svg.selectAll("*").remove();
   legend.selectAll("*").remove();
 
@@ -76,15 +83,15 @@ function renderPieChart(projectsGiven) {
     value: count
   }));
 
-  // Total number of projects in the current search
+  // Calculate total projects
   const total = d3.sum(data, (d) => d.value);
 
-  // Pie generator
+  // Create pie generator
   const sliceGenerator = d3.pie()
     .value((d) => d.value)
     .sort(null);
 
-  // Arc generator
+  // Create arc generator
   const arcGenerator = d3.arc()
     .innerRadius(0)
     .outerRadius(50);
@@ -92,19 +99,18 @@ function renderPieChart(projectsGiven) {
   const arcData = sliceGenerator(data);
 
   /* ========================================
-     DRAW PIE SLICES + PERCENTAGES
+     DRAW SLICES AND PERCENTAGES
      ======================================== */
 
   arcData.forEach((slice) => {
     const year = slice.data.label;
     const isSelected = selectedYear === year;
 
-    const percentage =
-      total > 0
-        ? (slice.data.value / total) * 100
-        : 0;
+    const percentage = total > 0
+      ? (slice.data.value / total) * 100
+      : 0;
 
-    // Draw slice
+    // Draw pie slice
     svg.append("path")
       .attr("d", arcGenerator(slice))
       .attr("fill", colors(year))
@@ -117,16 +123,13 @@ function renderPieChart(projectsGiven) {
       )
       .on("click", () => toggleYear(year))
       .on("keydown", (event) => {
-        if (
-          event.key === "Enter" ||
-          event.key === " "
-        ) {
+        if (event.key === "Enter" || event.key === " ") {
           event.preventDefault();
           toggleYear(year);
         }
       });
 
-    // Add percentage inside each slice
+    // Percentage label inside pie slice
     const [x, y] = arcGenerator.centroid(slice);
 
     svg.append("text")
@@ -137,16 +140,15 @@ function renderPieChart(projectsGiven) {
   });
 
   /* ========================================
-     DRAW LEGEND + PERCENTAGES
+     DRAW LEGEND
      ======================================== */
 
   data.forEach((item) => {
     const year = item.label;
 
-    const percentage =
-      total > 0
-        ? (item.value / total) * 100
-        : 0;
+    const percentage = total > 0
+      ? (item.value / total) * 100
+      : 0;
 
     legend.append("li")
       .attr("style", `--color: ${colors(year)}`)
@@ -164,10 +166,7 @@ function renderPieChart(projectsGiven) {
       )
       .on("click", () => toggleYear(year))
       .on("keydown", (event) => {
-        if (
-          event.key === "Enter" ||
-          event.key === " "
-        ) {
+        if (event.key === "Enter" || event.key === " ") {
           event.preventDefault();
           toggleYear(year);
         }
@@ -176,23 +175,22 @@ function renderPieChart(projectsGiven) {
 }
 
 /* ========================================
-   LAB 5: CLICK YEAR TO FILTER
+   LAB 5: YEAR FILTER
    ======================================== */
 
 function toggleYear(year) {
   // Click the same year again to deselect
-  selectedYear =
-    selectedYear === year ? null : year;
+  selectedYear = selectedYear === year ? null : year;
 
   updateProjects();
 }
 
 /* ========================================
-   LAB 5: UPDATE PROJECTS + CHART
+   UPDATE PROJECTS AND CHART
    ======================================== */
 
 function updateProjects() {
-  // Apply search and year filters together
+  // Apply both filters
   const filteredProjects = getFilteredProjects();
 
   // Render project cards
@@ -202,15 +200,14 @@ function updateProjects() {
     "h2"
   );
 
-  // Update visible project count
+  // Update project count
   if (projectsTitle) {
     projectsTitle.textContent =
       `Projects (${filteredProjects.length})`;
   }
 
-  // Chart reflects search results,
-  // while the selected year remains highlighted.
-  // This keeps all matching year slices clickable.
+  // Chart responds to search,
+  // while year selection highlights its slice
   const searchResults = projects.filter(matchesSearch);
 
   renderPieChart(searchResults);
@@ -224,15 +221,14 @@ if (searchInput) {
   searchInput.addEventListener("input", (event) => {
     query = event.target.value;
 
-    // Check years available after searching
+    // Find available years after searching
     const availableYears = projects
       .filter(matchesSearch)
       .map((project) =>
         String(project.year ?? "Unknown")
       );
 
-    // Clear selected year only if it no longer
-    // exists in the search results
+    // Clear selected year if no longer available
     if (
       selectedYear !== null &&
       !availableYears.includes(selectedYear)
@@ -249,3 +245,4 @@ if (searchInput) {
    ======================================== */
 
 updateProjects();
+
