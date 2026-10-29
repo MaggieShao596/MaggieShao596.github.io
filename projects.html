@@ -10,7 +10,9 @@
   <link rel="stylesheet" href="style.css" />
 
   <style>
-    /* ===== PAGE STYLING ===== */
+    /* ========================================
+       PAGE STYLING
+       ======================================== */
 
     .projects-page {
       margin: 0;
@@ -20,14 +22,21 @@
       background: var(--color-page);
     }
 
-    /* ===== ACCESSIBILITY ===== */
+    /* ========================================
+       ACCESSIBILITY
+       ======================================== */
 
-    .projects-page a:focus-visible {
+    .projects-page a:focus-visible,
+    .projects-page input:focus-visible,
+    .projects-page .legend li:focus-visible,
+    .projects-page #projects-pie-plot path:focus-visible {
       outline: 2px solid var(--color-accent);
       outline-offset: 4px;
     }
 
-    /* ===== MAIN CONTENT ===== */
+    /* ========================================
+       MAIN CONTENT
+       ======================================== */
 
     .projects-page main {
       max-width: 1100px;
@@ -55,7 +64,134 @@
       line-height: 1.7;
     }
 
-    /* ===== RESPONSIVE PROJECT GRID ===== */
+    /* ========================================
+       LAB 5: PIE CHART CONTAINER
+       ======================================== */
+
+    .projects-page .projects-chart-container {
+      display: flex;
+      align-items: center;
+      gap: 2em;
+      flex-wrap: wrap;
+      margin: 32px 0;
+    }
+
+    .projects-page #projects-pie-plot {
+      display: block;
+      width: 100%;
+      max-width: 20em;
+      flex-shrink: 0;
+      overflow: visible;
+    }
+
+    /* ========================================
+       LAB 5: PIE CHART INTERACTIONS
+       ======================================== */
+
+    .projects-page #projects-pie-plot path {
+      cursor: pointer;
+      transition: opacity 300ms, fill 300ms;
+    }
+
+    .projects-page
+    #projects-pie-plot:has(path:hover)
+    path:not(:hover) {
+      opacity: 0.5;
+    }
+
+    .projects-page #projects-pie-plot path.selected {
+      fill: oklch(60% 45% 0);
+    }
+
+    /* ========================================
+       LAB 5: LEGEND
+       ======================================== */
+
+    .projects-page .legend {
+      flex: 1;
+      display: grid;
+      grid-template-columns:
+        repeat(auto-fill, minmax(9em, 1fr));
+      gap: 1em;
+
+      margin: 0;
+      padding: 1.25em;
+
+      border: 1px solid var(--color-border);
+      border-radius: 12px;
+      list-style: none;
+    }
+
+    .projects-page .legend li {
+      display: flex;
+      align-items: center;
+      gap: 0.5em;
+      padding: 0.4em;
+
+      cursor: pointer;
+      border-radius: 6px;
+
+      transition: background 200ms;
+    }
+
+    .projects-page .legend li:hover {
+      background: var(--color-surface);
+    }
+
+    .projects-page .legend .swatch {
+      display: inline-block;
+      width: 1em;
+      height: 1em;
+      flex-shrink: 0;
+
+      background: var(--color);
+      border-radius: 3px;
+    }
+
+    .projects-page .legend li.selected {
+      font-weight: bold;
+      color: var(--color-text);
+      background: var(--color-surface);
+    }
+
+    .projects-page .legend li.selected .swatch {
+      background: oklch(60% 45% 0);
+    }
+
+    /* ========================================
+       LAB 5: SEARCH BAR
+       ======================================== */
+
+    .projects-page .searchBar {
+      display: block;
+      width: 100%;
+      box-sizing: border-box;
+
+      padding: 12px 16px;
+      margin: 24px 0;
+
+      font: inherit;
+      color: var(--color-text);
+      background: var(--color-surface);
+
+      border: 1px solid var(--color-border);
+      border-radius: 10px;
+
+      transition: border-color 200ms;
+    }
+
+    .projects-page .searchBar:focus {
+      border-color: var(--color-accent);
+    }
+
+    .projects-page .searchBar::placeholder {
+      color: var(--color-muted);
+      opacity: 0.8;
+    }
+
+    /* ========================================
+       RESPONSIVE PROJECT GRID
+       ======================================== */
 
     .projects-page .projects-grid {
       display: grid;
@@ -66,7 +202,9 @@
       align-items: stretch;
     }
 
-    /* ===== PROJECT CARDS ===== */
+    /* ========================================
+       PROJECT CARDS
+       ======================================== */
 
     .projects-page .project-card {
       display: flex;
@@ -92,7 +230,9 @@
       border-radius: 10px;
     }
 
-    /* ===== PROJECT HEADINGS ===== */
+    /* ========================================
+       PROJECT HEADINGS
+       ======================================== */
 
     .projects-page .project-card h2 {
       margin: 0;
@@ -107,7 +247,9 @@
       color: var(--color-text);
     }
 
-    /* ===== PROJECT TEXT ===== */
+    /* ========================================
+       PROJECT TEXT AND YEAR
+       ======================================== */
 
     .projects-page .project-card p {
       margin: 0;
@@ -123,7 +265,21 @@
       margin-bottom: 8px;
     }
 
-    /* ===== TOOLS SECTION ===== */
+    .projects-page .project-details {
+      display: block;
+    }
+
+    .projects-page .project-year {
+      margin-top: 0.5em;
+      color: var(--color-muted);
+      font-family: Baskerville, serif;
+      font-variant-numeric: oldstyle-nums;
+      font-size: 0.9em;
+    }
+
+    /* ========================================
+       TOOLS SECTION
+       ======================================== */
 
     .projects-page .tools {
       padding-top: 16px;
@@ -132,11 +288,14 @@
       color: var(--color-muted);
     }
 
-    /* ===== GITHUB LINKS ===== */
+    /* ========================================
+       GITHUB LINKS
+       ======================================== */
 
     .projects-page .project-link {
       display: inline-block;
       margin-top: auto;
+
       color: var(--color-accent-dark);
       font-weight: 600;
       text-decoration: none;
@@ -147,7 +306,9 @@
       text-decoration: underline;
     }
 
-    /* ===== FOOTER ===== */
+    /* ========================================
+       FOOTER
+       ======================================== */
 
     .projects-page footer {
       padding: 24px 20px 36px;
@@ -156,9 +317,12 @@
       color: var(--color-muted);
     }
 
-    /* ===== RESPONSIVE DESIGN ===== */
+    /* ========================================
+       RESPONSIVE DESIGN
+       ======================================== */
 
     @media (max-width: 600px) {
+
       .projects-page main {
         padding: 30px 16px;
       }
@@ -166,11 +330,35 @@
       .projects-page .project-card {
         padding: 20px;
       }
+
+      .projects-page .projects-chart-container {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .projects-page #projects-pie-plot {
+        align-self: center;
+        max-width: 16em;
+      }
+
+      .projects-page .legend {
+        width: 100%;
+        box-sizing: border-box;
+      }
     }
 
     @media (max-width: 400px) {
+
       .projects-page .projects-grid {
         grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .projects-page #projects-pie-plot path,
+      .projects-page .legend li,
+      .projects-page .searchBar {
+        transition: none;
       }
     }
   </style>
@@ -178,9 +366,14 @@
 
 <body class="projects-page">
 
-  <!-- Navigation and theme switcher generated by global.js -->
+  <!-- ========================================
+       NAVIGATION AND THEME SWITCHER
+       Generated by global.js
+       ======================================== -->
 
-  <!-- ===== MAIN CONTENT ===== -->
+  <!-- ========================================
+       MAIN CONTENT
+       ======================================== -->
 
   <main>
 
@@ -193,24 +386,60 @@
       through data cleaning, visualization, and modeling.
     </p>
 
-    <!-- LAB 4: PROJECTS GENERATED DYNAMICALLY -->
+    <!-- ========================================
+         LAB 5: PIE CHART AND LEGEND
+         ======================================== -->
+
+    <div class="projects-chart-container">
+
+      <svg
+        id="projects-pie-plot"
+        viewBox="-50 -50 100 100"
+        role="group"
+        aria-label="Projects grouped by year"
+      ></svg>
+
+      <ul
+        class="legend"
+        aria-label="Project years"
+      ></ul>
+
+    </div>
+
+    <!-- ========================================
+         LAB 5: SEARCH BAR
+         ======================================== -->
+
+    <input
+      class="searchBar"
+      type="search"
+      aria-label="Search projects"
+      placeholder="Search projects..."
+    />
+
+    <!-- ========================================
+         LAB 4 + LAB 5: DYNAMIC PROJECT CARDS
+         ======================================== -->
 
     <div class="projects projects-grid">
-      <!-- JavaScript will insert project cards here -->
+      <!-- JavaScript inserts project cards here -->
     </div>
 
   </main>
 
-  <!-- ===== FOOTER ===== -->
+  <!-- ========================================
+       FOOTER
+       ======================================== -->
 
   <footer>
     © 2026 Maggie Shao
   </footer>
 
-  <!-- LAB 3: NAVIGATION AND THEME SWITCHER -->
-  <script type="module" src="global.js"></script>
+  <!-- ========================================
+       JAVASCRIPT
+       ======================================== -->
 
-  <!-- LAB 4: DYNAMIC PROJECTS -->
+  <!-- projects.js imports global.js automatically -->
   <script type="module" src="projects.js"></script>
 
 </body>
