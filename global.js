@@ -7,6 +7,7 @@ function $$(selector, context = document) {
 
 /* ========================================
    Step 3: Automatic Navigation Menu
+   Lab 6: Added Meta Page
    ======================================== */
 
 let pages = [
@@ -15,6 +16,7 @@ let pages = [
   { url: "resume.html", title: "Resume" },
   { url: "projects.html", title: "Projects" },
   { url: "skills.html", title: "Skills" },
+  { url: "meta/", title: "Meta" },
   { url: "contact.html", title: "Contact" },
   {
     url: "https://github.com/MaggieShao596",
@@ -22,10 +24,15 @@ let pages = [
   },
 ];
 
+// Get the root URL of the website.
+// global.js is located in the root directory.
+const siteRoot = new URL("./", import.meta.url);
+
 function normalize(path) {
   return path
     .replace(/index\.html$/, "")
-    .replace(/\.html$/, "");
+    .replace(/\.html$/, "")
+    .replace(/\/$/, "");
 }
 
 let nav = document.createElement("nav");
@@ -38,11 +45,17 @@ document.body.prepend(nav);
 for (let p of pages) {
   let a = document.createElement("a");
 
-  a.href = p.url;
+  // Resolve internal links relative to the website root.
+  // This allows navigation to work from meta/index.html.
+  a.href = p.url.startsWith("http")
+    ? p.url
+    : new URL(p.url, siteRoot).href;
+
   a.textContent = p.title;
 
   nav.append(a);
 
+  // Highlight the current page
   if (
     a.host === location.host &&
     normalize(a.pathname) === normalize(location.pathname)
@@ -50,6 +63,7 @@ for (let p of pages) {
     a.setAttribute("aria-current", "page");
   }
 
+  // Open external links in a new tab
   if (a.host !== location.host) {
     a.target = "_blank";
     a.rel = "noopener noreferrer";
@@ -206,9 +220,10 @@ export function renderProjects(
     }
 
     // Lab 5 Step 0: Display project year
-    if (project.year !== undefined &&
-        project.year !== null) {
-
+    if (
+      project.year !== undefined &&
+      project.year !== null
+    ) {
       const year = document.createElement("p");
 
       year.className = "project-year";
@@ -248,3 +263,4 @@ export async function fetchGitHubData(username) {
     `https://api.github.com/users/${username}`
   );
 }
+
