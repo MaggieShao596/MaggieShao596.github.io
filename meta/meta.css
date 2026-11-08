@@ -1,0 +1,186 @@
+
+/* ========================================
+   Lab 6: Meta Page Styling
+   ======================================== */
+
+/* Summary Statistics */
+
+#stats {
+  margin: 2rem 0;
+}
+
+#stats .stats {
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(150px, 1fr)
+  );
+  gap: 1rem;
+}
+
+#stats .stat {
+  background: color-mix(
+    in oklch,
+    canvas,
+    canvastext 5%
+  );
+  border: 1px solid color-mix(
+    in oklch,
+    canvastext,
+    transparent 85%
+  );
+  border-radius: 10px;
+  padding: 1rem;
+}
+
+#stats dt {
+  font-size: 0.85rem;
+  color: gray;
+  margin-bottom: 0.5rem;
+}
+
+#stats dd {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+/* ========================================
+   Scatterplot
+   ======================================== */
+
+#chart {
+  margin: 2rem 0;
+  width: 100%;
+}
+
+#chart svg {
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+
+#chart .gridlines line {
+  stroke: currentColor;
+  stroke-opacity: 0.15;
+}
+
+#chart .domain {
+  stroke: currentColor;
+  stroke-opacity: 0.4;
+}
+
+#chart .tick text {
+  fill: currentColor;
+}
+
+#chart circle {
+  fill: steelblue;
+  fill-opacity: 0.7;
+  transition: fill-opacity 150ms;
+}
+
+#chart circle:hover {
+  fill-opacity: 1;
+}
+
+#chart circle.selected {
+  fill: #ff6b6b;
+  fill-opacity: 1;
+}
+
+/* ========================================
+   Tooltip
+   ======================================== */
+
+.tooltip {
+  position: fixed;
+  background: canvas;
+  color: canvastext;
+  border: 1px solid color-mix(
+    in oklch,
+    canvastext,
+    transparent 75%
+  );
+  border-radius: 8px;
+  padding: 1rem;
+  box-shadow: 0 4px 16px #0002;
+  pointer-events: none;
+  z-index: 1000;
+  max-width: 300px;
+  font-size: 0.9rem;
+}
+
+.tooltip[hidden] {
+  display: none;
+}
+
+.tooltip dt {
+  font-weight: bold;
+  margin-top: 0.5rem;
+}
+
+.tooltip dd {
+  margin: 0.2rem 0 0.5rem;
+  overflow-wrap: anywhere;
+}
+
+.tooltip a {
+  color: steelblue;
+}
+
+/* ========================================
+   Brushing
+   ======================================== */
+
+#chart .selection {
+  fill: steelblue;
+  fill-opacity: 0.18;
+  stroke: steelblue;
+  stroke-width: 1.5;
+}
+
+#chart .handle {
+  fill: steelblue;
+}
+
+/* ========================================
+   Selection Summary
+   ======================================== */
+
+#selection-count {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-top: 1.5rem;
+}
+
+#language-breakdown {
+  margin: 1rem 0 2rem;
+}
+
+#language-breakdown h3 {
+  margin-bottom: 0.75rem;
+}
+
+#language-breakdown p {
+  margin: 0.4rem 0;
+}
+
+/* ========================================
+   Responsive Layout
+   ======================================== */
+
+@media (max-width: 600px) {
+  #stats .stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  #stats dd {
+    font-size: 1.2rem;
+  }
+
+  .tooltip {
+    max-width: 220px;
+    font-size: 0.8rem;
+  }
+}
