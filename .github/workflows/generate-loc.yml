@@ -1,0 +1,39 @@
+
+name: Generate LOC Data
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository with history
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Generate loc.csv
+        run: |
+          npm install --no-save elocuent
+          mkdir -p meta
+          npx elocuent -d . -o meta/loc.csv --spaces 2
+
+      - name: Commit generated CSV
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add meta/loc.csv
+          if ! git diff --cached --quiet; then
+            git commit -m "Generate Lab 6 loc.csv"
+            git push
+          fi
