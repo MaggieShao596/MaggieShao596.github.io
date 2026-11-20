@@ -1,9 +1,7 @@
 
 /* ========================================
-   Lab 6: Meta Page Styling
+   Lab 8: Meta Page Styling
    ======================================== */
-
-/* Summary Statistics */
 
 #stats {
   margin: 2rem 0;
@@ -11,10 +9,8 @@
 
 #stats .stats {
   display: grid;
-  grid-template-columns: repeat(
-    auto-fit,
-    minmax(150px, 1fr)
-  );
+  grid-template-columns:
+    repeat(auto-fit, minmax(150px, 1fr));
   gap: 1rem;
 }
 
@@ -46,11 +42,132 @@
 }
 
 /* ========================================
+   Time Slider
+   ======================================== */
+
+.timeline-controls {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin: 1.5rem 0 0.5rem;
+  padding: 1rem;
+  border-radius: 10px;
+  background: color-mix(
+    in oklch,
+    canvas,
+    canvastext 5%
+  );
+}
+
+.timeline-controls label {
+  font-weight: 600;
+}
+
+#commit-progress {
+  flex: 1;
+  min-width: 160px;
+  accent-color: steelblue;
+  cursor: pointer;
+}
+
+#commit-time {
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.helper-text {
+  color: gray;
+  font-size: 0.9rem;
+  margin-bottom: 2rem;
+}
+
+/* ========================================
+   Scrollytelling
+   ======================================== */
+
+#scrolly-1 {
+  position: relative;
+  display: flex;
+  align-items: stretch;
+  gap: 1.5rem;
+  margin: 2rem 0 4rem;
+}
+
+#scatter-story {
+  flex: 0 0 32%;
+  min-width: 0;
+}
+
+#scatter-story .step {
+  min-height: 65vh;
+  padding: 1.5rem;
+  margin-bottom: 1rem;
+  border: 1px solid color-mix(
+    in oklch,
+    canvastext,
+    transparent 85%
+  );
+  border-radius: 12px;
+  background: color-mix(
+    in oklch,
+    canvas,
+    canvastext 3%
+  );
+  opacity: 0.55;
+  transition:
+    opacity 250ms,
+    background 250ms,
+    border-color 250ms;
+}
+
+#scatter-story .step.active {
+  opacity: 1;
+  border-color: steelblue;
+  background: color-mix(
+    in oklch,
+    canvas,
+    steelblue 8%
+  );
+}
+
+#scatter-story .step h3 {
+  margin-top: 0;
+}
+
+#scatter-story .step p {
+  line-height: 1.6;
+}
+
+#scatter-story .step a {
+  color: steelblue;
+  overflow-wrap: anywhere;
+}
+
+#scatter-plot {
+  position: sticky;
+  top: 1rem;
+  align-self: flex-start;
+  flex: 1;
+  min-width: 0;
+  height: 75vh;
+  overflow-y: auto;
+  border: 1px solid color-mix(
+    in oklch,
+    canvastext,
+    transparent 85%
+  );
+  border-radius: 12px;
+  padding: 1rem;
+  background: canvas;
+}
+
+/* ========================================
    Scatterplot
    ======================================== */
 
 #chart {
-  margin: 2rem 0;
+  margin: 0.5rem 0;
   width: 100%;
 }
 
@@ -87,6 +204,21 @@
 #chart circle.selected {
   fill: #ff6b6b;
   fill-opacity: 1;
+}
+
+/* ========================================
+   Brushing
+   ======================================== */
+
+#chart .selection {
+  fill: steelblue;
+  fill-opacity: 0.18;
+  stroke: steelblue;
+  stroke-width: 1.5;
+}
+
+#chart .handle {
+  fill: steelblue;
 }
 
 /* ========================================
@@ -130,28 +262,13 @@
 }
 
 /* ========================================
-   Brushing
-   ======================================== */
-
-#chart .selection {
-  fill: steelblue;
-  fill-opacity: 0.18;
-  stroke: steelblue;
-  stroke-width: 1.5;
-}
-
-#chart .handle {
-  fill: steelblue;
-}
-
-/* ========================================
    Selection Summary
    ======================================== */
 
 #selection-count {
   font-size: 1rem;
   font-weight: 600;
-  margin-top: 1.5rem;
+  margin-top: 1rem;
 }
 
 #language-breakdown {
@@ -167,8 +284,132 @@
 }
 
 /* ========================================
+   File Unit Visualization
+   ======================================== */
+
+.file-section {
+  margin: 3rem 0;
+}
+
+.file-section > p {
+  color: gray;
+  line-height: 1.6;
+}
+
+#file-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem 1.2rem;
+  margin: 1.5rem 0;
+}
+
+.legend-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.85rem;
+}
+
+.legend-swatch {
+  width: 0.8rem;
+  height: 0.8rem;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+#files {
+  display: grid;
+  gap: 1rem;
+  margin: 2rem 0;
+}
+
+#files .file-row {
+  display: grid;
+  grid-template-columns: minmax(140px, 1fr) 3fr;
+  gap: 1rem;
+  align-items: start;
+  border-bottom: 1px solid color-mix(
+    in oklch,
+    canvastext,
+    transparent 88%
+  );
+  padding-bottom: 1rem;
+}
+
+#files dt {
+  min-width: 0;
+}
+
+#files dt code {
+  font-size: 0.85rem;
+  overflow-wrap: anywhere;
+}
+
+#files dt small {
+  display: block;
+  margin-top: 0.35rem;
+  color: gray;
+  font-size: 0.75rem;
+}
+
+#files dd {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  align-content: flex-start;
+  gap: 0.2rem;
+  margin: 0;
+  padding-top: 0.25rem;
+}
+
+#files .loc {
+  display: inline-block;
+  width: 0.5rem;
+  height: 0.5rem;
+  flex: 0 0 0.5rem;
+  border-radius: 50%;
+  background: var(--color, steelblue);
+  transition:
+    transform 200ms,
+    opacity 200ms;
+}
+
+#files .loc:hover {
+  transform: scale(1.7);
+  opacity: 0.85;
+}
+
+/* ========================================
    Responsive Layout
    ======================================== */
+
+@media (max-width: 800px) {
+  #scrolly-1 {
+    flex-direction: column;
+  }
+
+  #scatter-story {
+    width: 100%;
+  }
+
+  #scatter-plot {
+    position: relative;
+    top: auto;
+    width: 100%;
+    height: auto;
+    overflow: visible;
+    box-sizing: border-box;
+  }
+
+  #scatter-story .step {
+    min-height: 35vh;
+  }
+
+  #files .file-row {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+  }
+}
 
 @media (max-width: 600px) {
   #stats .stats {
@@ -183,4 +424,14 @@
     max-width: 220px;
     font-size: 0.8rem;
   }
+
+  .timeline-controls {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  #commit-progress {
+    width: 100%;
+  }
 }
+
