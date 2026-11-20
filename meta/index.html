@@ -4,19 +4,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
   <title>Meta - Code Analysis</title>
 
-  <!-- Global website styles -->
   <link rel="stylesheet" href="../style.css">
-
-  <!-- Meta page styles -->
   <link rel="stylesheet" href="meta.css">
 
-  <!-- Global navigation and dark mode -->
   <script type="module" src="../global.js"></script>
-
-  <!-- D3 visualization -->
   <script type="module" src="main.js"></script>
 </head>
 
@@ -32,26 +25,65 @@
   <div id="stats"></div>
 
   <h2>Commits by Date and Time</h2>
-  <div id="chart"></div>
 
-  <p id="selection-count">No commits selected</p>
+  <div class="timeline-controls">
+    <label for="commit-progress">Show commits until:</label>
+    <input
+      type="range"
+      id="commit-progress"
+      min="0"
+      max="100"
+      value="100"
+      step="1"
+    >
+    <time id="commit-time"></time>
+  </div>
 
-  <div id="language-breakdown"></div>
+  <p class="helper-text">
+    Move the slider or scroll through the commit history
+    to see how this website evolved over time.
+  </p>
+
+  <div id="scrolly-1">
+    <div id="scatter-story"></div>
+
+    <div id="scatter-plot">
+      <div id="chart"></div>
+
+      <p id="selection-count">No commits selected</p>
+      <div id="language-breakdown"></div>
+    </div>
+  </div>
+
+  <section class="file-section">
+    <h2>The Race for the Biggest File</h2>
+
+    <p>
+      Each dot represents one line of code.
+      Files are sorted by their number of lines,
+      and colors represent different technologies.
+    </p>
+
+    <div id="file-legend"></div>
+    <dl id="files"></dl>
+  </section>
 
   <!-- Commit tooltip -->
   <dl id="commit-tooltip" class="info tooltip" hidden>
     <dt>Commit</dt>
     <dd>
-      <a id="commit-link"
-         target="_blank"
-         rel="noopener noreferrer"></a>
+      <a
+        id="commit-link"
+        target="_blank"
+        rel="noopener noreferrer"
+      ></a>
     </dd>
 
     <dt>Date</dt>
     <dd id="commit-date"></dd>
 
     <dt>Time</dt>
-    <dd id="commit-time"></dd>
+    <dd id="commit-time-tooltip"></dd>
 
     <dt>Author</dt>
     <dd id="commit-author"></dd>
@@ -61,3 +93,4 @@
   </dl>
 </body>
 </html>
+
